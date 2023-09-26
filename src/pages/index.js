@@ -1,4 +1,5 @@
 import Image from "next/image"
+import { fetcher } from "@/util/API"
 
 export default function Home() {
   return (
