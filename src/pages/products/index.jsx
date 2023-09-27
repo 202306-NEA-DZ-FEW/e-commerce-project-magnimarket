@@ -3,20 +3,7 @@ import { motion } from "framer-motion"
 import FilterSidebar from "@/components/Filter/Filter"
 import Card from "@/components/Card/Card"
 import AnimatedBox from "@/components/AnimatedBox"
-
-export async function fetcher(apiRoute) {
-  const url = "https://api.escuelajs.co/api/v1/" + apiRoute
-
-  const options = {
-    method: "GET",
-    headers: {
-      accept: "application/json",
-    },
-  }
-  const response = await fetch(url, options)
-  const data = await response.json()
-  return data
-}
+import { fetcher } from "@/util/API"
 
 export async function getServerSideProps({ query }) {
   const categoryId = query.categoryId || ""
