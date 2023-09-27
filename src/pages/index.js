@@ -1,4 +1,8 @@
-export default function index() {
-  return <div>index</div>
 
+function index() {
+  return (
+    <div>index</div>
+  )
+}
 
+export default index
