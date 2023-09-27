@@ -1,3 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  :root {
+    --color-bkg: 237 237 237;
+    --color-content: 27 60 104;
+    --color-accent: 41 198 205;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-bkg: 18 18 18;
+      --color-content: 237 237 237;
+      --color-accent: 255 97 0;
+    }
+  }
+}

@@ -7,9 +7,10 @@ const AnimatedBox = ({ children }) => {
   const router = useRouter()
   const { query } = router
   const { x, y } = query
+
   const initialX = parseFloat(x) || 0
   const initialY = parseFloat(y) || 0
-
+  console.log(x)
   return (
     <AnimatePresence mode="wait">
       <motion.div
@@ -43,6 +44,7 @@ const AnimatedBox = ({ children }) => {
           x: { duration: 0.7 },
           y: { duration: 0.7 },
         }}
+        className={`absolute top-0 left-0 w-full h-full`}
       >
         {children}
       </motion.div>

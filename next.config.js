@@ -8,6 +8,7 @@ const nextConfig = {
       "m.media-amazon.com",
       "resources.claroshop.com",
       "source.unsplash.com",
+      "incajas.com",
     ],
   },
 }
