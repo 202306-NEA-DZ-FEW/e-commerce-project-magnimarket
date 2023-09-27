@@ -6,7 +6,7 @@ export default function Card({ title, price, description, images }) {
     <Tilt glareEnable={false} tiltMaxAngleX={10} tiltMaxAngleY={10}>
       <motion.div
         layout
-        className="w-64 m-2 mx-1 bg-bkg border-accent border rounded-lg shadow "
+        className="w-64 m-2 mx-1 bg-bkg border-border border rounded-md shadow-custom "
       >
         <Image
           className="object-cover rounded-md"
@@ -16,13 +16,13 @@ export default function Card({ title, price, description, images }) {
           height={500}
         />
         <div className="px-5 pb-5">
-          <h5 className="text-md font-semibold tracking-tight text-content">
+          <h5 className="text-md font-semibold tracking-tight text-content ">
             {title}
           </h5>
           <p className="text-xs overflow-hidden whitespace-nowrap text-ellipsis text-content">
             {description}
           </p>
-          <div className="flex items-center mt-2.5 mb-5">
+          {/* <div className="flex items-center mt-2.5 mb-5">
             <svg
               className="w-4 h-4 text-yellow-300 mr-1"
               aria-hidden="true"
@@ -71,18 +71,18 @@ export default function Card({ title, price, description, images }) {
             <span className="bg-accent text-content text-xs font-semibold mr-2 px-2.5 py-0.5 rounded ml-3">
               5.0
             </span>
-          </div>
-          <div className="flex items-center justify-between">
+          </div> */}
+          <div className="flex items-center justify-between mt-5">
             <span className="text-xl font-bold text-content">{price}$</span>
             <a
               href="#"
-              className="text-white bg-accent hover:bg-content focus:ring-4 focus:outline-none focus:ring-content/25 font-medium rounded-lg text-xs px-2 py-1 text-center "
+              className="text-white bg-accent hover:bg-bkgHover hover:text-black focus:ring-4 focus:outline-none focus:ring-content/25 font-medium rounded-lg text-xs p-2 text-center "
             >
               Add to Cart
             </a>
             <a
               href="#"
-              className="text-white uppercase  bg-accent hover:bg-content focus:ring-4 focus:outline-none focus:ring-content/25  font-medium rounded-lg text-xs px-2 py-1 text-center"
+              className="text-white uppercase  bg-accent hover:bg-bkgHover hover:text-black focus:ring-4 focus:outline-none focus:ring-content/25  font-medium rounded-lg text-xs p-2 text-center"
             >
               buy now
             </a>

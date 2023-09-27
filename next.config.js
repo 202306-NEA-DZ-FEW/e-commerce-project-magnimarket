@@ -9,6 +9,7 @@ const nextConfig = {
       "resources.claroshop.com",
       "source.unsplash.com",
       "incajas.com",
+      "via.placeholder.com",
     ],
   },
 }
