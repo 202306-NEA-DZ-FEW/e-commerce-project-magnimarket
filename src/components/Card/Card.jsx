@@ -10,7 +10,10 @@ export default function Card({ title, price, description, images }) {
       >
         <Image
           className="object-cover rounded-md"
-          src={images[0]}
+          // src={images[0]}
+          src={`https://source.unsplash.com/random/1600x900?${encodeURIComponent(
+            title,
+          )}`}
           alt="product image"
           width={500}
           height={500}
