@@ -8,10 +8,10 @@ import { fetcher } from "@/util/API"
 export async function getServerSideProps({ query }) {
   const categoryId = query.categoryId || ""
   const title = query.title || ""
-  const price_min = query.price_min || "20"
-  const price_max = query.price_max || "900"
+  const price_min = query.price_min || "0"
+  const price_max = query.price_max || "1000"
 
-  const products = await fetcher("products??offset=0&limit=30")
+  const products = await fetcher("products??offset=0&limit=50")
   const categories = await fetcher("categories")
 
   return {
@@ -61,8 +61,8 @@ const Index = ({ products, categories, initialFilters }) => {
         filters={filters}
         setFilters={setFilters}
       />
-      <div className="flex">
-        <div className="flex-1 overflow-y-auto">
+      <div className="flex w-full">
+        <div className="flex-1 overflow-y-auto pl-16 ">
           <motion.div layout className="flex flex-wrap justify-center">
             {filteredProducts.slice(0, displayedProducts).map((product) => (
               <Card

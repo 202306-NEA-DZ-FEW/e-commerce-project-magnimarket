@@ -1,18 +1,24 @@
 import React from "react"
 import Image from "next/image"
-import logo from "../../../public/logo.png"
+// import logo from "logo."
 import { FaShoppingCart } from "react-icons/fa"
 
 const Navbar = () => {
   return (
-    <div className="w-full border-2 border-bordery text-white">
+    <div className="w-full border-2 border-border text-white">
       <div className="max-w-container mx-auto h-20 flex items-center">
         {/* ------  navbar-logo ------  */}
 
-        <div className="flex items-center h-20 border-e border-bordery p-4 hover:bg-slate-50 cursor-pointer">
+        <div className="flex items-center h-20 border-e border-border p-4 hover:bg-slate-50 cursor-pointer">
           <a href="#">
             {" "}
-            <Image src={logo} className="w-40 h-14 " alt="Logo" />{" "}
+            <Image
+              src={"/logo.png"}
+              className="w-40 h-14 "
+              alt="Logo"
+              height={500}
+              width={500}
+            />{" "}
           </a>
         </div>
 

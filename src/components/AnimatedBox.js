@@ -1,4 +1,3 @@
-// AnimatedBox.js
 import React from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { useRouter } from "next/router"
@@ -44,7 +43,7 @@ const AnimatedBox = ({ children }) => {
           x: { duration: 0.7 },
           y: { duration: 0.7 },
         }}
-        className={`absolute top-0 left-0 w-full h-full`}
+        className={`relative flex w-full h-full mt-12`}
       >
         {children}
       </motion.div>

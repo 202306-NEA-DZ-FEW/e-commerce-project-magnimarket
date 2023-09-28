@@ -1,7 +1,44 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap");
 
-body {
-  /* background: teal; */
+@layer base {
+  html {
+    font-family: Cairo, sans-serif;
+  }
+
+  :root {
+    --color-bkg: 237 237 237;
+    --color-content: 0 0 0;
+    --color-accent: 0 123 143;
+    --color-border: 216 209 202;
+    --color-bkgHover: 250 250 250;
+    --color-titleContent: 51 51 51;
+    --color-navbarContent: 102 102 102;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-bkg: 18 18 18;
+      --color-content: 237 237 237;
+      --color-accent: 255 97 0;
+      --color-border: 216 209 202;
+      --color-bkgHover: 250 250 250;
+      --color-titleContent: 51 51 51;
+      --color-navbarContent: 102 102 102;
+    }
+  }
+}
+
+.filters:hover .filtersChild {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.filtersChild {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in-out;
 }
