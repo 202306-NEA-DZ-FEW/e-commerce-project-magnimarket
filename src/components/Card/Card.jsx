@@ -1,34 +1,38 @@
 import Tilt from "react-parallax-tilt"
 import Image from "next/image"
-import { motion, AnimatePresence } from "framer-motion"
 import Button from "../button"
 import Wishlist from "../wishList"
+
+import { motion, LazyMotion } from "framer-motion"
 export default function Card({ product }) {
   const { title, price, description } = product
   return (
     <Tilt glareEnable={false} tiltMaxAngleX={10} tiltMaxAngleY={10}>
-      <motion.div
-        layout
-        className="w-64 m-2 mx-1 bg-bkg border-border border rounded-md shadow-custom "
-      >
-        <Image
-          className="object-cover rounded-md"
-          // src={images[0]}
-          src={`https://source.unsplash.com/random/1600x900?${encodeURIComponent(
-            title,
-          )}`}
-          alt="product image"
-          width={500}
-          height={500}
-        />
-        <div className="px-5 pb-5">
-          <h5 className="text-md font-semibold tracking-tight text-content ">
-            {title}
-          </h5>
-          <p className="text-xs overflow-hidden whitespace-nowrap text-ellipsis text-content">
-            {description}
-          </p>
-          {/* <div className="flex items-center mt-2.5 mb-5">
+      <LazyMotion features="loadFeatures">
+        <motion.div
+          layout
+          className="w-64 m-2 mx-1 bg-bkg border-border border rounded-md shadow-custom "
+        >
+          <Image
+            className="object-cover rounded-md"
+            // src={images[0]}
+            src={`https://source.unsplash.com/random/400x300?${encodeURIComponent(
+              title,
+            )}&q:10`}
+            // src="https://picsum.photos/200/300"
+            alt="product image"
+            width={500}
+            height={500}
+            loading="lazy"
+          />
+          <div className="px-5 pb-5">
+            <h5 className="text-md font-semibold tracking-tight text-content ">
+              {title}
+            </h5>
+            <p className="text-xs overflow-hidden whitespace-nowrap text-ellipsis text-content">
+              {description}
+            </p>
+            {/* <div className="flex items-center mt-2.5 mb-5">
             <svg
               className="w-4 h-4 text-yellow-300 mr-1"
               aria-hidden="true"
@@ -90,9 +94,10 @@ export default function Card({ product }) {
             />
 
             <Wishlist productObject={product} />
+
           </div>
-        </div>
-      </motion.div>
+        </motion.div>
+      </LazyMotion>
     </Tilt>
   )
 }
