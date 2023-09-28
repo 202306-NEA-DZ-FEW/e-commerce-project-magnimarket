@@ -102,6 +102,7 @@ function Card({
             <div className="flex justify-end mt-4">
               <Button
                 productObject={productObject}
+                styling={"text-white font-bold py-2 px-4 rounded"}
                 className="bg-blue-500 text-white rounded-md px-4 py-2 hover:bg-blue-600 focus:outline-none focus:ring focus:ring-blue-300"
                 style={{ width: "120px", height: "50px" }}
               />

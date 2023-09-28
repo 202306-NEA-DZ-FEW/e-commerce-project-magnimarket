@@ -1,7 +1,10 @@
 import Tilt from "react-parallax-tilt"
 import Image from "next/image"
 import { motion, AnimatePresence } from "framer-motion"
-export default function Card({ title, price, description, images }) {
+import Button from "../button"
+import Wishlist from "../wishList"
+export default function Card({ product }) {
+  const { title, price, description } = product
   return (
     <Tilt glareEnable={false} tiltMaxAngleX={10} tiltMaxAngleY={10}>
       <motion.div
@@ -75,20 +78,18 @@ export default function Card({ title, price, description, images }) {
               5.0
             </span>
           </div> */}
-          <div className="flex items-center justify-between mt-5">
+          <div className="flex items-center justify-between mt-3 mb-2">
             <span className="text-xl font-bold text-content">{price}$</span>
-            <a
-              href="#"
-              className="text-white bg-accent hover:bg-bkgHover hover:text-black focus:ring-4 focus:outline-none focus:ring-content/25 font-medium rounded-lg text-xs p-2 text-center "
-            >
-              Add to Cart
-            </a>
-            <a
-              href="#"
-              className="text-white uppercase  bg-accent hover:bg-bkgHover hover:text-black focus:ring-4 focus:outline-none focus:ring-content/25  font-medium rounded-lg text-xs p-2 text-center"
-            >
-              buy now
-            </a>
+          </div>
+          <div className="flex flex-col items-left justify-between space-y-2">
+            <Button
+              productObject={product}
+              styling={
+                "w-full text-white uppercase  bg-accent hover:bg-bkgHover hover:text-black focus:ring-4 focus:outline-none focus:ring-content/25  font-medium rounded-lg text-xs p-2 text-center"
+              }
+            />
+
+            <Wishlist productObject={product} />
           </div>
         </div>
       </motion.div>

@@ -11,7 +11,7 @@ import {
 import { db } from "@/util/firebase"
 import { useState, useEffect } from "react"
 
-function Button({ productObject }) {
+function Button({ productObject, styling }) {
   const productsInCart = collection(db, "Products")
   const [isInCart, setIsInCart] = useState(false)
 
@@ -82,9 +82,7 @@ function Button({ productObject }) {
     <div>
       <button
         onClick={toggleCart}
-        className={`${
-          isInCart ? "bg-red-500" : "bg-blue-500"
-        } text-white font-bold py-2 px-4 rounded`}
+        className={`${isInCart ? "bg-red-500" : "bg-accent"} ${styling}`}
       >
         {isInCart ? "Remove from Cart" : "Add to Cart"}
       </button>
