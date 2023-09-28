@@ -65,13 +65,7 @@ const Index = ({ products, categories, initialFilters }) => {
         <div className="flex-1 overflow-y-auto pl-16 ">
           <motion.div layout className="flex flex-wrap justify-center">
             {filteredProducts.slice(0, displayedProducts).map((product) => (
-              <Card
-                key={product.id}
-                title={product.title}
-                price={product.price}
-                description={product.description}
-                images={product.images}
-              />
+              <Card key={product.id} product={product} />
             ))}
             {displayedProducts < filteredProducts.length && (
               <div className="w-full justify-center">
