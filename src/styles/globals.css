@@ -9,7 +9,7 @@
   }
   /* light mode */
   :root {
-    --color-bkg: 237 237 237;
+    --color-bkg: 255 255 255;
     --color-content: 0 0 0;
     --color-accent: 88 28 135;
     --color-border: 216 209 202;

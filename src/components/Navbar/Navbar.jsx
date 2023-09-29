@@ -2,8 +2,8 @@ import { useEffect, useState } from "react"
 import { useRouter } from "next/router"
 import Link from "next/link"
 import { FaBars, FaTimes, FaShoppingCart, FaHeart } from "react-icons/fa"
-
 import { Disclosure } from "@headlessui/react"
+import logo from "../../../public/logo.png"
 
 export default function Navbar() {
   const router = useRouter()
@@ -34,18 +34,18 @@ export default function Navbar() {
   return (
     <Disclosure
       as="nav"
-      className="bg-none dark:bg-black border-b border-gray-50 dark:border-gray-900"
+      className="bg-none dark:bg-black border-b border-border dark:border-gray-900 mb-6"
     >
       {({ open }) => (
         <>
           <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
             <div className="relative flex h-16 items-center justify-between">
-              <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
+              <div className="absolute inset-y-0 left-0 flex items-center sm:hidden ">
                 {/* Mobile menu button */}
                 <Disclosure.Button className="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
                   <span className="sr-only">Open main menu</span>
                   {open ? (
-                    <FaTimes className="block h-6 w-6" aria-hidden="true" />
+                    <FaTimes className="block h-6 w-6 " aria-hidden="true" />
                   ) : (
                     <FaBars className="block h-6 w-6" aria-hidden="true" />
                   )}
@@ -56,12 +56,12 @@ export default function Navbar() {
                   <div className="flex flex-shrink-0 items-center">
                     <img
                       className="block h-8 w-auto lg:hidden"
-                      src="../assets/logo.png"
+                      src={logo}
                       alt="Your Company"
                     />
                     <img
                       className="hidden h-8 w-auto lg:block"
-                      src="../assets/logo.png"
+                      src={logo}
                       alt="Your Company"
                     />
                   </div>

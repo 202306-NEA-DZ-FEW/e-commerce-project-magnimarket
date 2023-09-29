@@ -3,6 +3,7 @@ import { useEffect, useState } from "react"
 import SliderComponent from "@/components/Slider/Slider"
 import GridComponent from "@/components/Grid/Grid"
 import SuperDealItem from "@/components/Deals/SuperDealItem"
+import Footer from "@/components/Foter/Foter"
 
 const HomePage = () => {
   const router = useRouter()
@@ -57,6 +58,9 @@ const HomePage = () => {
             .sort((a, b) => b.creationAt - a.creationAt)
             .slice(0, 8)}
         />
+      </div>
+      <div>
+        <Footer />
       </div>
     </div>
   )
