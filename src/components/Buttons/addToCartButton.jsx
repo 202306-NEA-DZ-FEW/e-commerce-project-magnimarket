@@ -8,7 +8,7 @@ import {
   where,
   onSnapshot,
 } from "firebase/firestore"
-import { db } from "@/util/firebase"
+import { auth, db } from "@/util/firebase"
 import { useState, useEffect } from "react"
 
 function Button({ productObject, styling }) {
@@ -72,7 +72,11 @@ function Button({ productObject, styling }) {
       })
     } else {
       // If the item is not in the cart, add it
-      await addDoc(productsInCart, productObject)
+      await addDoc(productsInCart, {
+        ...productObject,
+        uid: auth?.currentUser?.uid,
+      })
+
       console.log("Document added to cart successfully!")
       setIsInCart(true)
     }
