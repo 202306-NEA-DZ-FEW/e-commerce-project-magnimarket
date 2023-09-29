@@ -61,16 +61,16 @@ const Index = ({ products, categories, initialFilters }) => {
         filters={filters}
         setFilters={setFilters}
       />
-      <div className="flex w-full">
+      <div className="flex w-full ">
         <div className="flex-1 overflow-y-auto pl-16 ">
-          <motion.div layout className="flex flex-wrap justify-center">
+          <motion.div layout className="flex flex-wrap justify-center bg">
             {filteredProducts.slice(0, displayedProducts).map((product) => (
               <Card key={product.id} product={product} />
             ))}
             {displayedProducts < filteredProducts.length && (
-              <div className="w-full justify-center">
+              <div className="w-full justify-center ">
                 <button
-                  className="bg-accent justify-center text-bkg py-2 rounded-md w-full"
+                  className="bg-accent justify-center text-bkg py-2 my-6 rounded-md w-full"
                   onClick={loadMoreProducts}
                 >
                   Load More
