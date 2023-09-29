@@ -1,6 +1,7 @@
 import Tilt from "react-parallax-tilt"
 import Image from "next/image"
 import { motion, AnimatePresence } from "framer-motion"
+
 export default function Card({ title, price, description, images }) {
   return (
     <Tilt glareEnable={false} tiltMaxAngleX={10} tiltMaxAngleY={10}>
@@ -10,7 +11,9 @@ export default function Card({ title, price, description, images }) {
       >
         <Image
           className="object-cover rounded-md"
-          src={images[0]}
+          src={`https://source.unsplash.com/random/400x300?${encodeURIComponent(
+            title,
+          )}&q:10`}
           alt="product image"
           width={500}
           height={500}
