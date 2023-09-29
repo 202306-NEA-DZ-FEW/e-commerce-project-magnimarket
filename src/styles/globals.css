@@ -36,7 +36,6 @@
   visibility: visible;
   transition: opacity 0.3s ease-in-out;
 }
-
 .filtersChild {
   opacity: 0;
   visibility: hidden;

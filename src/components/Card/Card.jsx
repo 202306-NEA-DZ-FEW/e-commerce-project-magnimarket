@@ -1,8 +1,8 @@
 import Tilt from "react-parallax-tilt"
 import Image from "next/image"
 
-import Button from "@/Buttons/addToCartButton"
-import Wishlist from "@/Buttons/addToWishListButton"
+import Button from "@/components/Buttons/addToCartButton"
+import Wishlist from "@/components/Buttons/addToWishListButton"
 
 import { motion, LazyMotion } from "framer-motion"
 export default function Card({ product }) {
@@ -21,7 +21,7 @@ export default function Card({ product }) {
               title,
             )}&q:10`}
             // src="https://picsum.photos/200/300"
-            alt="product image"
+            alt={title}
             width={500}
             height={500}
             loading="lazy"

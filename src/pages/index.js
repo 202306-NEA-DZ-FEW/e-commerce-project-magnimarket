@@ -33,7 +33,7 @@ const HomePage = () => {
             pathname: "/products",
             query: { title: "computer" },
           }}
-          percentageOff={75} // Pass the percentage value here
+          percentageOff={75}
         />
         <SuperDealItem
           title="Autumn Shoes 2023"
@@ -43,9 +43,9 @@ const HomePage = () => {
             pathname: "/products",
             query: { title: "shoes" },
           }}
-          percentageOff={70} // Pass the percentage value here
+          percentageOff={70}
         />
-      </div>{" "}
+      </div>
       <div>
         <GridComponent
           header="Best Sellers"

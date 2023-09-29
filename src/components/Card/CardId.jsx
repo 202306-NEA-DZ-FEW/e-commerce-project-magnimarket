@@ -1,7 +1,7 @@
 import React from "react"
 import { collection, deleteDoc, doc, getDocs } from "firebase/firestore"
 import { db } from "@/util/firebase"
-import Button from "../../Buttons/addToCartButton" // Import the Button component
+import Button from "../Buttons/addToCartButton" // Import the Button component
 import { useState } from "react"
 
 function Card({
@@ -51,7 +51,9 @@ function Card({
       <div className="flex flex-col lg:flex-row">
         <div className="w-full lg:w-1/3">
           <img
-            src={productObject.images}
+            src={`https://source.unsplash.com/random/400x300?${encodeURIComponent(
+              productObject.title,
+            )}&q:10`}
             alt={productObject.title}
             className="w-full h-64 object-cover"
             style={{ objectFit: "cover" }}
