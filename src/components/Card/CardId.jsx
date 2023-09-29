@@ -47,7 +47,7 @@ function Card({
   const totalProductPrice = productObject.price * quantity
 
   return (
-    <div className="border rounded-lg overflow-hidden shadow-lg bg-white text-gray-800 relative mb-4">
+    <div className="border border-border  relative rounded-lg overflow-hidden shadow-lg bg-white text-gray-800 p-2 mb-6">
       <div className="flex flex-col lg:flex-row">
         <div className="w-full lg:w-1/3">
           <img
@@ -104,9 +104,9 @@ function Card({
             <div className="flex justify-end mt-4">
               <Button
                 productObject={productObject}
-                styling={"text-white font-bold py-2 px-4 rounded"}
+                styling={"text-white font-semibold py-2 px-4 rounded"}
                 className="bg-blue-500 text-white rounded-md px-4 py-2 hover:bg-blue-600 focus:outline-none focus:ring focus:ring-blue-300"
-                style={{ width: "120px", height: "50px" }}
+                style={{ width: "120px", height: "60px" }}
               />
             </div>
           )}
