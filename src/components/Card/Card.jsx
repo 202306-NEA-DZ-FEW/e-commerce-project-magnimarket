@@ -1,8 +1,8 @@
 import Tilt from "react-parallax-tilt"
 import Image from "next/image"
 
-import Button from "../button"
-import Wishlist from "../wishList"
+import Button from "@/Buttons/addToCartButton"
+import Wishlist from "@/Buttons/addToWishListButton"
 
 import { motion, LazyMotion } from "framer-motion"
 export default function Card({ product }) {
@@ -47,7 +47,6 @@ export default function Card({ product }) {
 
               <Wishlist productObject={product} />
             </div>
-
           </div>
         </motion.div>
       </LazyMotion>

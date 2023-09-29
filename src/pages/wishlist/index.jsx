@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react"
-import { collection, getDocs } from "firebase/firestore"
+import { collection, getDocs, onSnapshot } from "firebase/firestore"
 import { db } from "@/util/firebase"
-import Card from "@/components/CardId"
+import Card from "@/components/Card/CardId"
 
 function WishlistPage() {
   const [products, setProducts] = useState([])
 
   useEffect(() => {
     const fetchProducts = async () => {
-      const productsCollection = collection(db, "Wishlist") // Change collection name to 'Wishlist'
+      const productsCollection = collection(db, "Wishlist")
       const querySnapshot = await getDocs(productsCollection)
 
       const productsData = []
@@ -21,9 +21,28 @@ function WishlistPage() {
     }
 
     fetchProducts()
+
+    // Add a real-time listener to update the wishlist when changes occur
+    const unsubscribe = onSnapshot(collection(db, "Wishlist"), (snapshot) => {
+      const updatedProducts = []
+      snapshot.forEach((doc) => {
+        updatedProducts.push({ ...doc.data(), quantity: 1 })
+      })
+      setProducts(updatedProducts)
+    })
+
+    return () => {
+      // Clean up the listener when the component unmounts
+      unsubscribe()
+    }
   }, [])
 
   const removeFromWishlist = (productToRemove) => {
+    // You can remove the product from the Firebase collection here
+    // and the real-time listener will automatically update the page.
+    // Example:
+    // deleteDoc(doc(db, "Wishlist", productToRemove.id));
+
     // Filter out the product to be removed from the products state
     const updatedProducts = products.filter(
       (product) => product !== productToRemove,
@@ -48,8 +67,6 @@ function WishlistPage() {
         Your Wishlist
       </h1>
       <div className="flex flex-col">
-        {" "}
-        {/* Use flex to create a column layout */}
         {products.length === 0 ? (
           <p className="text-lg font-bold text-gray-800 mt-4">
             Your wishlist is empty.

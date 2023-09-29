@@ -1,7 +1,7 @@
 import React from "react"
 import { collection, deleteDoc, doc, getDocs } from "firebase/firestore"
 import { db } from "@/util/firebase"
-import Button from "./button" // Import the Button component
+import Button from "../../Buttons/addToCartButton" // Import the Button component
 import { useState } from "react"
 
 function Card({
