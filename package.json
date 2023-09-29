@@ -12,13 +12,15 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.17",
+    "@heroicons/react": "^2.0.18",
     "autoprefixer": "10.4.16",
     "eslint": "8.50.0",
     "eslint-config-next": "13.5.2",
+    "firebase": "^10.4.0",
     "framer-motion": "^10.16.4",
     "js-cookie": "^3.0.5",
     "lodash.debounce": "^4.0.8",
-    "firebase": "^10.4.0",
     "next": "13.5.2",
     "postcss": "8.4.30",
     "rc-slider": "^10.3.0",
