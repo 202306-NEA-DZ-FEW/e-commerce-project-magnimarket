@@ -3,7 +3,8 @@ import { useRouter } from "next/router"
 import Link from "next/link"
 import { FaBars, FaTimes, FaShoppingCart, FaHeart } from "react-icons/fa"
 import { Disclosure } from "@headlessui/react"
-import logo from "../../../public/logo.png"
+// import logo from "../../../public/logo.png"
+import Image from "next/image"
 
 export default function Navbar() {
   const router = useRouter()
@@ -51,18 +52,20 @@ export default function Navbar() {
                   )}
                 </Disclosure.Button>
               </div>
-              <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+              <div className="flex flex-1 items-center justify-center sm:justify-start">
                 <Link href="/">
                   <div className="flex flex-shrink-0 items-center">
                     <img
                       className="block h-8 w-auto lg:hidden"
-                      src={logo}
+                      src={"/logo.png"}
                       alt="Your Company"
                     />
-                    <img
-                      className="hidden h-8 w-auto lg:block"
-                      src={logo}
+                    <Image
+                      className="hidden lg:block"
+                      src={"/logo.png"}
                       alt="Your Company"
+                      height={80}
+                      width={100}
                     />
                   </div>
                 </Link>

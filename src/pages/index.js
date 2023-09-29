@@ -25,7 +25,7 @@ const HomePage = () => {
       <div className="flex-grow ">
         <SliderComponent products={products} />
       </div>
-      <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 m-10">
+      <div className="flex justify-center flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 m-10">
         <SuperDealItem
           title="Computers"
           description="Get ready to compute in style with our unbeatable autumn computer deals!"

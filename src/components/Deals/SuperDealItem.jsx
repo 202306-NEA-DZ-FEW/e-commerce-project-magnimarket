@@ -10,7 +10,7 @@ export default function SuperDealItem({
   percentageOff,
 }) {
   return (
-    <div className="w-5/6 h-64 border rounded-2xl shadow-xl">
+    <div className="w-full md:w-5/6 h-64 border rounded-2xl shadow-xl">
       <div className="relative  h-full">
         <Image
           className="object-cover w-full h-full rounded-2xl"
@@ -45,8 +45,8 @@ export default function SuperDealItem({
               </Link>
             </div>
           </div>
-          {/* <div className="w-20 h-20 bg-accent border shadow-custom border-red-700 rounded-full flex items-center justify-center -rotate-[30deg]">
-          <div className="text-red-800 font-bold">
+          {/* <div className="w-20 h-20 bg-yellow-400 border shadow-custom border-border rounded-full flex items-center justify-center -rotate-[30deg]">
+          <div className="text-white font-bold">
             <p className="text-sm">Up to</p>
             <div className="flex space-x-2">
               <div className="w-1/2">

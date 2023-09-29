@@ -19,11 +19,11 @@
   }
 
   /* dark mode */
-  @media (prefers-color-scheme: white) {
+  @media (prefers-color-scheme: dark) {
     :root {
       --color-bkg: 18 18 18;
       --color-content: 237 237 237;
-      --color-accent: 255 97 0;
+      --color-accent: 88 28 135;
       --color-border: 216 209 202;
       --color-bkgHover: 250 250 250;
       --color-titleContent: 51 51 51;
