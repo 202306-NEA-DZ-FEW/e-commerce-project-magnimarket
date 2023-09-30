@@ -3,8 +3,6 @@ import { useEffect, useState } from "react"
 import SliderComponent from "@/components/Slider/Slider"
 import GridComponent from "@/components/Grid/Grid"
 import SuperDealItem from "@/components/Deals/SuperDealItem"
-import Footer from "../components/Footer/Footer"
-
 const HomePage = () => {
   const router = useRouter()
   const [products, setProducts] = useState([])

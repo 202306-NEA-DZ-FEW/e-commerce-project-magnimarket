@@ -38,16 +38,16 @@ const SliderComponent = ({ products }) => {
     lazyLoad: "onDemand",
     dots: false,
     infinite: true,
-    slidesToShow: 2,
+    slidesToShow: 3,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 2000,
+    autoplaySpeed: 800,
     pauseOnHover: true,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
     responsive: [
       {
-        breakpoint: 1024,
+        breakpoint: 1200,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1,
@@ -77,11 +77,11 @@ const SliderComponent = ({ products }) => {
     <div className="w-4/5 h-4/6	m-auto relative">
       <Slider {...settings}>
         {products.map((product) => (
-          <div key={product.id} className=" p-4  relative ">
+          <div key={product.id} className="2xl:p-4 lg:p-0 p-4 relative ">
             <Link href={"products/" + product.id}>
               <div>
                 <Image
-                  className="object-cover w-fit drop-shadow-md  dark:shadow-gray-500 rounded-xl h-96 "
+                  className="object-cover w-fit drop-shadow-md  dark:shadow-gray-500 rounded-xl lg:h-48  h-64 2xl:h-72"
                   src={`https://source.unsplash.com/random/1600x900?${encodeURIComponent(
                     product.category.name,
                   )}`}
@@ -90,11 +90,11 @@ const SliderComponent = ({ products }) => {
                   height={500}
                 />
               </div>
-              <div className="slider-caption w-5/6 absolute bottom-0 left-0 bg-black rounded-r-xl bg-opacity-50 p-6 mb-10 ml-4 mr-1 text-black hover:bg-accent ">
-                <h3 className="text-2xl font-semibold tracking-tight  text-white">
+              <div className="slider-caption lg:w-4/5 2xl:w-5/6  absolute bottom-0 left-0 bg-black rounded-r-xl bg-opacity-50 p-6 mb-5 2xl:mb-10 2xl:ml-4 ml-4 lg:ml-0  mr-1 text-black hover:bg-accent ">
+                <h3 className="text-xl font-semibold tracking-tight  text-white">
                   {product.title}
                 </h3>
-                <p className="text-m p-1 overflow-hidden whitespace-nowrap text-ellipsis w-32 text text-gray-400 ">
+                <p className="text-sm p-1 overflow-hidden whitespace-nowrap text-ellipsis w-32 text text-gray-400 ">
                   {product.description}
                 </p>
               </div>
