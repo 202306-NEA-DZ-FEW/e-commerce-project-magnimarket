@@ -35,7 +35,7 @@ export default function Navbar() {
   return (
     <Disclosure
       as="nav"
-      className="bg-none dark:bg-black border-b border-border dark:border-gray-900 mb-6"
+      className="bg-none dark:bg-black border-b border-border dark:border-gray-900"
     >
       {({ open }) => (
         <>

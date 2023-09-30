@@ -21,7 +21,7 @@ const HomePage = () => {
   }, [])
 
   return (
-    <div className="flex flex-col h-screen">
+    <div className="flex flex-col">
       <div className="flex-grow ">
         <SliderComponent products={products} />
       </div>
@@ -58,9 +58,6 @@ const HomePage = () => {
             .sort((a, b) => b.creationAt - a.creationAt)
             .slice(0, 8)}
         />
-      </div>
-      <div>
-        <Footer />
       </div>
     </div>
   )
