@@ -56,9 +56,9 @@ const SliderComponent = ({ products }) => {
         },
       },
       {
-        breakpoint: 600,
+        breakpoint: 800,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 1,
           slidesToScroll: 1,
           initialSlide: 1,
         },
@@ -74,27 +74,27 @@ const SliderComponent = ({ products }) => {
   }
 
   return (
-    <div className="w-4/6 h-1/4 m-auto rounded-md shadow-custom relative">
+    <div className="w-4/5 h-4/6	m-auto relative">
       <Slider {...settings}>
         {products.map((product) => (
-          <div key={product.id} className="ml-4 relative">
+          <div key={product.id} className=" p-4  relative ">
             <Link href={"products/" + product.id}>
               <div>
                 <Image
-                  className="object-cover rounded-md"
+                  className="object-cover w-fit drop-shadow-md  dark:shadow-gray-500 rounded-xl h-96 "
                   src={`https://source.unsplash.com/random/1600x900?${encodeURIComponent(
                     product.category.name,
                   )}`}
                   alt={product.title}
-                  width={500}
+                  width={600}
                   height={500}
                 />
               </div>
-              <div className="slider-caption absolute bottom-0 left-0 right-0 px-5 pb-5 text text-black">
-                <h3 className="text-md font-semibold tracking-tight text text-black">
+              <div className="slider-caption w-5/6 absolute bottom-0 left-0 bg-black rounded-r-xl bg-opacity-50 p-6 mb-10 ml-4 mr-1 text-black hover:bg-accent ">
+                <h3 className="text-2xl font-semibold tracking-tight  text-white">
                   {product.title}
                 </h3>
-                <p className="text-xs overflow-hidden whitespace-nowrap text-ellipsis w-40 text text-blue-700">
+                <p className="text-m p-1 overflow-hidden whitespace-nowrap text-ellipsis w-32 text text-gray-400 ">
                   {product.description}
                 </p>
               </div>

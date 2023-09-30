@@ -3,6 +3,7 @@ import { useEffect, useState } from "react"
 import SliderComponent from "@/components/Slider/Slider"
 import GridComponent from "@/components/Grid/Grid"
 import SuperDealItem from "@/components/Deals/SuperDealItem"
+import Footer from "../components/Footer/Footer"
 
 const HomePage = () => {
   const router = useRouter()
@@ -20,11 +21,11 @@ const HomePage = () => {
   }, [])
 
   return (
-    <div className="flex flex-col h-screen">
+    <div className="flex flex-col">
       <div className="flex-grow ">
         <SliderComponent products={products} />
       </div>
-      <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 m-10">
+      <div className="flex justify-center flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 m-10">
         <SuperDealItem
           title="Computers"
           description="Get ready to compute in style with our unbeatable autumn computer deals!"

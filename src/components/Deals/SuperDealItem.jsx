@@ -10,18 +10,18 @@ export default function SuperDealItem({
   percentageOff,
 }) {
   return (
-    <div className="w-1/2 h-64 border rounded-lg shadow-custom">
-      <div className="relative h-full">
+    <div className="w-full md:w-5/6 h-64 border rounded-2xl shadow-xl">
+      <div className="relative  h-full">
         <Image
-          className="object-cover w-full h-full rounded-lg"
+          className="object-cover w-full h-full rounded-2xl"
           src={imageSrc}
           alt={title}
           width={1600}
           height={200}
         />
-        <div className="flex flex-wrap space-x-10 absolute bottom-0 right-0 m-4">
-          <div className="flex flex-wrap justify-items-start bg-gray-900 bg-opacity-50 h-full">
-            <div className="px-10 max-w-xl">
+        <div className="flex  flex-wrap space-x-10 absolute bottom-0 ">
+          <div className="flex flex-wrap bg-black rounded-2xl justify-items-start p-4 bg-opacity-50 ">
+            <div className="px-6 max-w-xl">
               <h2 className="text-2xl text-white font-semibold">{title}</h2>
               <p className="mt-2 text-gray-400 hidden md:block">
                 {description}
@@ -45,20 +45,20 @@ export default function SuperDealItem({
               </Link>
             </div>
           </div>
-          <div className="w-20 h-20 bg-yellow-500 border shadow-custom border-red-700 rounded-full flex items-center justify-center -rotate-[30deg]">
-            <div className="text-red-800 font-bold">
-              <p className="text-sm">Up to</p>
-              <div className="flex space-x-2">
-                <div className="w-1/2">
-                  <p className="text-4xl font-semibold">{percentageOff}</p>
-                </div>
-                <div className="w-1/2">
-                  <p className="text-xs font-semibold">%</p>
-                  <p className="text-sm font-semibold">off</p>
-                </div>
+          {/* <div className="w-20 h-20 bg-yellow-400 border shadow-custom border-border rounded-full flex items-center justify-center -rotate-[30deg]">
+          <div className="text-white font-bold">
+            <p className="text-sm">Up to</p>
+            <div className="flex space-x-2">
+              <div className="w-1/2">
+                <p className="text-4xl font-semibold">{percentageOff}</p>
+              </div>
+              <div className="w-1/2">
+                <p className="text-xs font-semibold">%</p>
+                <p className="text-sm font-semibold">off</p>
               </div>
             </div>
           </div>
+        </div> */}
         </div>
       </div>
     </div>

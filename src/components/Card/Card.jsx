@@ -12,7 +12,7 @@ export default function Card({ product }) {
       <LazyMotion features="loadFeatures">
         <motion.div
           layout
-          className="w-64 m-2 mx-1 bg-bkg border-border border rounded-md shadow-custom "
+          className="w-64 m-2 mx-4 bg-bkg border-border border p-1 rounded-md shadow-xl "
         >
           <Image
             className="object-cover rounded-md"
@@ -24,11 +24,11 @@ export default function Card({ product }) {
             height={500}
             loading="lazy"
           />
-          <div className="px-5 pb-5">
-            <h5 className="text-md font-semibold tracking-tight text-content ">
+          <div className="p-4 ">
+            <h5 className="text-md font-semibold tracking-tight text-titleContent  ">
               {title}
             </h5>
-            <p className="text-xs overflow-hidden whitespace-nowrap text-ellipsis text-content">
+            <p className="text-xs overflow-hidden whitespace-nowrap text-ellipsis text-titleContent">
               {description}
             </p>
             <div className="flex items-center justify-between mt-3 mb-2">
