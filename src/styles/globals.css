@@ -7,22 +7,23 @@
   html {
     font-family: Cairo, sans-serif;
   }
-
+  /* light mode */
   :root {
-    --color-bkg: 237 237 237;
+    --color-bkg: 255 255 255;
     --color-content: 0 0 0;
-    --color-accent: 0 123 143;
+    --color-accent: 88 28 135;
     --color-border: 216 209 202;
     --color-bkgHover: 250 250 250;
     --color-titleContent: 51 51 51;
     --color-navbarContent: 102 102 102;
   }
 
-  @media (prefers-color-scheme: white) {
+  /* dark mode */
+  @media (prefers-color-scheme: dark) {
     :root {
       --color-bkg: 18 18 18;
       --color-content: 237 237 237;
-      --color-accent: 255 97 0;
+      --color-accent: 88 28 135;
       --color-border: 216 209 202;
       --color-bkgHover: 250 250 250;
       --color-titleContent: 51 51 51;
