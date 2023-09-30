@@ -17,11 +17,6 @@ export default function Navbar() {
     { name: "Dashboard", href: "/", current: router.pathname === "/" },
     { name: "Shop", href: "/products", current: router.pathname === "/shop" },
     { name: "About", href: "/about", current: router.pathname === "/about" },
-    {
-      name: "Contact us",
-      href: "/contact",
-      current: router.pathname === "/contact",
-    },
   ]
 
   const toggleShoppingMenu = () => {
@@ -88,10 +83,12 @@ export default function Navbar() {
                   </div>
                 </div>
               </div>
-              <AuthDetail />
+              <div className="sm:block hidden">
+                <AuthDetail />
+              </div>
               <Link
                 href="/wishlist"
-                className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0"
+                className=" inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0"
               >
                 <button
                   type="button"
@@ -106,7 +103,7 @@ export default function Navbar() {
               </Link>
               <Link
                 href="/cart"
-                className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0"
+                className=" inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0"
               >
                 <button
                   type="button"
@@ -138,6 +135,7 @@ export default function Navbar() {
                   </div>
                 </Link>
               ))}
+              <AuthDetail />
             </div>
           </Disclosure.Panel>
         </>

@@ -102,7 +102,7 @@ export default function SimilarProducts({ product, header }) {
                 <Image
                   className="object-cover"
                   src={`https://source.unsplash.com/random/1600x900?${encodeURIComponent(
-                    similarProduct.category.name,
+                    similarProduct.title,
                   )}`}
                   alt={similarProduct.title}
                   width={500}

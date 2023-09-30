@@ -91,7 +91,7 @@ function CartPage() {
       {isAuthenticated ? (
         <div className="flex flex-col">
           {products.length === 0 ? (
-            <p className="text-lg font-bold text-gray-800 mt-4">
+            <p className="text-lg font-bold text-gray-800 mt-4 h-screen">
               Your cart is empty.
             </p>
           ) : (
@@ -117,7 +117,7 @@ function CartPage() {
           )}
         </div>
       ) : (
-        <p className="text-lg font-bold text-gray-800 mt-4">
+        <p className="text-lg font-bold text-gray-800 mt-4 h-screen ">
           Please sign in to view your cart.
         </p>
       )}

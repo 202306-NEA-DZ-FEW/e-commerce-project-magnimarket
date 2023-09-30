@@ -35,7 +35,6 @@ const SliderComponent = ({ products }) => {
     )
   }
   const settings = {
-    lazyLoad: "onDemand",
     dots: false,
     infinite: true,
     slidesToShow: 3,
@@ -83,7 +82,7 @@ const SliderComponent = ({ products }) => {
                 <Image
                   className="object-cover w-fit drop-shadow-md  dark:shadow-gray-500 rounded-xl lg:h-48  h-64 2xl:h-72"
                   src={`https://source.unsplash.com/random/1600x900?${encodeURIComponent(
-                    product.category.name,
+                    product.title,
                   )}`}
                   alt={product.title}
                   width={600}
