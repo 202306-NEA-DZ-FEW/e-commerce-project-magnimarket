@@ -8,20 +8,29 @@ import {
   where,
   onSnapshot,
 } from "firebase/firestore"
-import { db } from "@/util/firebase"
+import { db, auth } from "@/util/firebase"
 import { useState, useEffect } from "react"
+import Router, { useRouter } from "next/router"
 
 function Wishlist({ productObject }) {
   const wishlistCollection = collection(db, "Wishlist")
   const [isInWishlist, setIsInWishlist] = useState(false)
+  const router = useRouter()
 
   // Function to check if the product is in the wishlist
   const checkIfInWishlist = async () => {
+    // check if the user is signed in
+    const user = auth.currentUser
+    if (!user) {
+      return
+    }
+
     const q = query(
       wishlistCollection,
       where("title", "==", productObject.title),
       where("price", "==", productObject.price),
       where("description", "==", productObject.description),
+      where("uid", "==", user.uid),
     )
 
     const querySnapshot = await getDocs(q)
@@ -50,6 +59,12 @@ function Wishlist({ productObject }) {
   }, [wishlistCollection])
 
   const toggleWishlist = async () => {
+    const user = auth.currentUser
+    if (!user) {
+      router.push("/signin")
+      return
+    }
+
     if (isInWishlist) {
       // If the item is in the wishlist, remove it
       const q = query(
@@ -57,6 +72,7 @@ function Wishlist({ productObject }) {
         where("title", "==", productObject.title),
         where("price", "==", productObject.price),
         where("description", "==", productObject.description),
+        where("uid", "==", user.uid),
       )
 
       const querySnapshot = await getDocs(q)
@@ -72,7 +88,11 @@ function Wishlist({ productObject }) {
       })
     } else {
       // If the item is not in the wishlist, add it
-      await addDoc(wishlistCollection, productObject)
+      await addDoc(wishlistCollection, {
+        ...productObject,
+        uid: auth?.currentUser?.uid,
+      })
+
       console.log("Item added to wishlist successfully!")
       setIsInWishlist(true)
     }

@@ -10,18 +10,26 @@ import {
 } from "firebase/firestore"
 import { auth, db } from "@/util/firebase"
 import { useState, useEffect } from "react"
+import Router, { useRouter } from "next/router"
 
 function Button({ productObject, styling }) {
   const productsInCart = collection(db, "Products")
   const [isInCart, setIsInCart] = useState(false)
-
+  const router = useRouter()
   // Function to check if the product is in the cart
   const checkIfInCart = async () => {
+    // check if the user is signed in
+    const user = auth.currentUser
+    if (!user) {
+      return
+    }
+
     const q = query(
       productsInCart,
       where("title", "==", productObject.title),
       where("price", "==", productObject.price),
       where("description", "==", productObject.description),
+      where("uid", "==", user.uid),
     )
 
     const querySnapshot = await getDocs(q)
@@ -50,6 +58,12 @@ function Button({ productObject, styling }) {
   }, [productsInCart])
 
   const toggleCart = async () => {
+    const user = auth.currentUser
+    if (!user) {
+      router.push("/signin")
+      return
+    }
+
     if (isInCart) {
       // If the item is in the cart, remove it
       const q = query(
@@ -57,6 +71,7 @@ function Button({ productObject, styling }) {
         where("title", "==", productObject.title),
         where("price", "==", productObject.price),
         where("description", "==", productObject.description),
+        where("uid", "==", user.uid),
       )
 
       const querySnapshot = await getDocs(q)
@@ -72,6 +87,7 @@ function Button({ productObject, styling }) {
       })
     } else {
       // If the item is not in the cart, add it
+
       await addDoc(productsInCart, {
         ...productObject,
         uid: auth?.currentUser?.uid,

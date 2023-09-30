@@ -5,6 +5,7 @@ import { FaBars, FaTimes, FaShoppingCart, FaHeart } from "react-icons/fa"
 import { Disclosure } from "@headlessui/react"
 // import logo from "../../../public/logo.png"
 import Image from "next/image"
+import AuthDetail from "../Auth/AuthDetail"
 
 export default function Navbar() {
   const router = useRouter()
@@ -87,6 +88,7 @@ export default function Navbar() {
                   </div>
                 </div>
               </div>
+              <AuthDetail />
               <Link
                 href="/wishlist"
                 className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0"
