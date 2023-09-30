@@ -45,16 +45,18 @@ const HomePage = () => {
           percentageOff={70}
         />
       </div>
-      <GridComponent
-        header="Best Sellers"
-        products={[...products].sort((a, b) => a.price - b.price).slice(0, 8)}
-      />
-      <GridComponent
-        header="New Arrivals"
-        products={[...products]
-          .sort((a, b) => b.creationAt - a.creationAt)
-          .slice(0, 8)}
-      />
+      <div>
+        <GridComponent
+          header="Best Sellers"
+          products={[...products].sort((a, b) => a.price - b.price).slice(0, 8)}
+        />
+        <GridComponent
+          header="New Arrivals"
+          products={[...products]
+            .sort((a, b) => b.creationAt - a.creationAt)
+            .slice(0, 8)}
+        />
+      </div>
     </div>
   )
 }
