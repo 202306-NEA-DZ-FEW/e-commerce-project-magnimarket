@@ -84,7 +84,7 @@ function Wishlist({ productObject }) {
         onClick={toggleWishlist}
         className={`${
           isInWishlist ? "bg-red-500" : "bg-accent"
-        } w-full text-white font-bold py-2 px-4 rounded "text-white uppercase  bg-accent hover:bg-bkgHover hover:text-black focus:ring-4 focus:outline-none focus:ring-content/25  font-medium rounded-lg text-xs p-2 text-center"`}
+        } w-full text-white py-2 px-4 "text-white uppercase  bg-accent hover:bg-bkgHover hover:text-black focus:ring-4 focus:outline-none focus:ring-content/25  font-medium rounded-lg text-xs p-2 text-center"`}
       >
         {isInWishlist ? "Remove from Wishlist" : "Add to Wishlist"}
       </button>
