@@ -3,8 +3,6 @@ import { useEffect, useState } from "react"
 import SliderComponent from "@/components/Slider/Slider"
 import GridComponent from "@/components/Grid/Grid"
 import SuperDealItem from "@/components/Deals/SuperDealItem"
-import Footer from "../components/Footer/Footer"
-
 const HomePage = () => {
   const router = useRouter()
   const [products, setProducts] = useState([])
@@ -21,7 +19,7 @@ const HomePage = () => {
   }, [])
 
   return (
-    <div className="flex flex-col h-screen">
+    <div className="flex flex-col">
       <div className="flex-grow ">
         <SliderComponent products={products} />
       </div>
@@ -47,21 +45,16 @@ const HomePage = () => {
           percentageOff={70}
         />
       </div>
-      <div>
-        <GridComponent
-          header="Best Sellers"
-          products={[...products].sort((a, b) => a.price - b.price).slice(0, 8)}
-        />
-        <GridComponent
-          header="New Arrivals"
-          products={[...products]
-            .sort((a, b) => b.creationAt - a.creationAt)
-            .slice(0, 8)}
-        />
-      </div>
-      <div>
-        <Footer />
-      </div>
+      <GridComponent
+        header="Best Sellers"
+        products={[...products].sort((a, b) => a.price - b.price).slice(0, 8)}
+      />
+      <GridComponent
+        header="New Arrivals"
+        products={[...products]
+          .sort((a, b) => b.creationAt - a.creationAt)
+          .slice(0, 8)}
+      />
     </div>
   )
 }
