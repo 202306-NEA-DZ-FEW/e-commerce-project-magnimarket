@@ -17,6 +17,7 @@ const HeroSection = () => {
       name: "C.Mohamed",
       github: "https://github.com/mohamed-cheraitia",
       skills: ["React", "JavaScript", "CSS", "NextJS"],
+      photo: "../imgs/mohamed.jpg",
     },
     {
       name: "Oussama",
@@ -99,6 +100,13 @@ const HeroSection = () => {
           <div className="grid grid-cols-1 gap-y-6 gap-x-8 text-base font-semibold leading-7 text-white sm:grid-cols-2 md:flex lg:gap-x-10">
             {teamMembers.map((member) => (
               <div key={member.name}>
+                <div className="mb-2">
+                  <img
+                    src={member.photo}
+                    alt={member.name}
+                    className="w-32 h-32 bg-black object-cover rounded-full border text-center mx-auto mb-6"
+                  />
+                </div>
                 <h3 className="text-xl font-semibold text-white">
                   {member.name}
                 </h3>
