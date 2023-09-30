@@ -20,7 +20,7 @@ const SliderComponent = ({ products }) => {
       ></div>
     )
   }
-  const PreArrow = (props) => {
+  const PrevArrow = (props) => {
     const { className, style, onClick } = props
     return (
       <div
@@ -35,7 +35,7 @@ const SliderComponent = ({ products }) => {
     )
   }
   const settings = {
-    lazyLoad: "ondemand",
+    lazyLoad: "onDemand",
     dots: false,
     infinite: true,
     slidesToShow: 2,
@@ -44,7 +44,7 @@ const SliderComponent = ({ products }) => {
     autoplaySpeed: 2000,
     pauseOnHover: true,
     nextArrow: <NextArrow />,
-    prevArrow: <PreArrow />,
+    prevArrow: <PrevArrow />,
     responsive: [
       {
         breakpoint: 1024,

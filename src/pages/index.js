@@ -33,7 +33,7 @@ const HomePage = () => {
             pathname: "/products",
             query: { title: "computer" },
           }}
-          percentageOff={75}
+          percentageOff={70}
         />
         <SuperDealItem
           title="Autumn Shoes 2023"
@@ -43,18 +43,18 @@ const HomePage = () => {
             pathname: "/products",
             query: { title: "shoes" },
           }}
-          percentageOff={70}
+          percentageOff={75}
         />
       </div>
       <div>
         <GridComponent
           header="Best Sellers"
-          products={[...products].sort((a, b) => a.price - b.price).slice(0, 8)}
+          products={[...products].sort((a, b) => b.price - a.price).slice(0, 8)}
         />
         <GridComponent
           header="New Arrivals"
           products={[...products]
-            .sort((a, b) => b.creationAt - a.creationAt)
+            .sort((a, b) => a.creationAt - b.creationAt)
             .slice(0, 8)}
         />
       </div>
