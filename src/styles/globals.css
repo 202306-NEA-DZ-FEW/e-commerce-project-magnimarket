@@ -7,6 +7,7 @@
   html {
     font-family: Cairo, sans-serif;
   }
+
   /* light mode */
   :root {
     --color-bkg: 255 255 255;
@@ -37,6 +38,7 @@
   visibility: visible;
   transition: opacity 0.3s ease-in-out;
 }
+
 .filtersChild {
   opacity: 0;
   visibility: hidden;

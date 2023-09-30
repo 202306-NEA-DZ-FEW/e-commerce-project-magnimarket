@@ -21,7 +21,8 @@ function Card({
       if (
         docData.title === productObject.title &&
         docData.price === productObject.price &&
-        docData.description === productObject.description
+        docData.description === productObject.description &&
+        docData.uid === productObject.uid
       ) {
         deleteDoc(doc(db, collectionName, docSnapshot.id))
           .then(() => {
