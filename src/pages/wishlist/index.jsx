@@ -9,6 +9,7 @@ import {
 import { db, auth } from "@/util/firebase"
 import Card from "@/components/Card/CardId"
 import { onAuthStateChanged } from "firebase/auth"
+import Head from "next/head"
 
 function WishlistPage() {
   const [products, setProducts] = useState([])
@@ -76,34 +77,41 @@ function WishlistPage() {
   }
 
   return (
-    <div className="container mx-auto p-4">
-      <h1 className="font-bold mb-4 text-3xl text-titleContent border-b-2 border-gray-300 py-2">
-        Your Wishlist
-      </h1>
-      {isAuthenticated ? (
-        <div className="flex flex-col">
-          {products.length === 0 ? (
-            <p className="text-lg font-bold text-content mt-4 h-screen">
-              Your wishlist is empty.
-            </p>
-          ) : (
-            products.map((product, index) => (
-              <Card
-                key={index}
-                productObject={product}
-                type={"wishlist"}
-                onUpdateQuantity={updateQuantity}
-                onRemoveFromCartwishlist={removeFromWishlist}
-              />
-            ))
-          )}
-        </div>
-      ) : (
-        <p className="text-lg font-bold text-gray-800 mt-4 h-screen">
-          Please sign in to view your wishlist.
-        </p>
-      )}
-    </div>
+    <>
+      <Head>
+        <title>Magni Market | wishlist</title>
+        <meta name="keywords" content="shop, buy product"></meta>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <div className="container mx-auto p-4">
+        <h1 className="font-bold mb-4 text-3xl text-titleContent border-b-2 border-gray-300 py-2">
+          Your Wishlist
+        </h1>
+        {isAuthenticated ? (
+          <div className="flex flex-col">
+            {products.length === 0 ? (
+              <p className="text-lg font-bold text-content mt-4 h-screen">
+                Your wishlist is empty.
+              </p>
+            ) : (
+              products.map((product, index) => (
+                <Card
+                  key={index}
+                  productObject={product}
+                  type={"wishlist"}
+                  onUpdateQuantity={updateQuantity}
+                  onRemoveFromCartwishlist={removeFromWishlist}
+                />
+              ))
+            )}
+          </div>
+        ) : (
+          <p className="text-lg font-bold text-gray-800 mt-4 h-screen">
+            Please sign in to view your wishlist.
+          </p>
+        )}
+      </div>
+    </>
   )
 }
 

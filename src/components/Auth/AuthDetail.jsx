@@ -35,14 +35,16 @@ const AuthDetail = () => {
           className="flex  hover:underline text-accent items-center "
         >
           <FaUserAlt className="mr-2 w-5 h-5" />
-          <div className="hidden md:block">{authUser.email}</div>
+          <div className="hidden font-semibold md:block text-sm">
+            {authUser.email}
+          </div>
         </Link>
       )}
       <button
         onClick={userSignOut}
         className={`${
           authUser
-            ? "bg-red-500 text-white p-1 px-2 border border-border rounded-md hover:bg-red-900"
+            ? "bg-red-500 font-semibold text-white p-1 px-2 border border-border rounded-md hover:bg-red-900"
             : "font-bold border border-border p-1 px-2 rounded-md text-content hover:bg-accent"
         }`}
       >

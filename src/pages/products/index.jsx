@@ -4,6 +4,7 @@ import FilterSidebar from "@/components/Filter/Filter"
 import Card from "@/components/Card/Card"
 import AnimatedBox from "@/components/AnimatedBox"
 import { fetcher } from "@/util/API"
+import Head from "next/head"
 
 export async function getServerSideProps({ query }) {
   const categoryId = query.categoryId || ""
@@ -55,32 +56,39 @@ const Index = ({ products, categories, initialFilters }) => {
   }
 
   return (
-    <AnimatedBox>
-      <FilterSidebar
-        categories={categories}
-        filters={filters}
-        setFilters={setFilters}
-      />
-      <div className="flex w-full ">
-        <div className="flex-1 overflow-y-auto pl-16 ">
-          <motion.div layout className="flex flex-wrap justify-center bg">
-            {filteredProducts.slice(0, displayedProducts).map((product) => (
-              <Card key={product.id} product={product} />
-            ))}
-            {displayedProducts < filteredProducts.length && (
-              <div className="w-full justify-center ">
-                <button
-                  className="bg-accent justify-center text-bkg py-2 my-6 rounded-md w-full"
-                  onClick={loadMoreProducts}
-                >
-                  Load More
-                </button>
-              </div>
-            )}
-          </motion.div>
+    <>
+      <Head>
+        <title>Magni Market | Buy a Product </title>
+        <meta name="keywords" content="shop, buy product"></meta>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <AnimatedBox>
+        <FilterSidebar
+          categories={categories}
+          filters={filters}
+          setFilters={setFilters}
+        />
+        <div className="flex w-full ">
+          <div className="flex-1 overflow-y-auto pl-16 ">
+            <motion.div layout className="flex flex-wrap justify-center bg">
+              {filteredProducts.slice(0, displayedProducts).map((product) => (
+                <Card key={product.id} product={product} />
+              ))}
+              {displayedProducts < filteredProducts.length && (
+                <div className="w-full justify-center ">
+                  <button
+                    className="bg-accent justify-center text-bkg py-2 my-6 rounded-md w-full"
+                    onClick={loadMoreProducts}
+                  >
+                    Load More
+                  </button>
+                </div>
+              )}
+            </motion.div>
+          </div>
         </div>
-      </div>
-    </AnimatedBox>
+      </AnimatedBox>
+    </>
   )
 }
 

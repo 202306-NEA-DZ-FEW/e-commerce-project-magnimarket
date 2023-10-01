@@ -3,6 +3,7 @@ import Link from "next/link"
 import { getAuth, onAuthStateChanged } from "firebase/auth"
 import React, { useEffect, useState } from "react"
 import { auth } from "@/util/firebase"
+import Head from "next/head"
 
 const UserPage = () => {
   const [authUser, setAuthUser] = useState(null)
@@ -20,6 +21,11 @@ const UserPage = () => {
   }, [])
   return (
     <>
+      <Head>
+        <title>User Page</title>
+        <meta name="keywords" content="shop, buy product"></meta>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       {authUser ? (
         <div className="flex flex-col bg-gray-100 p-4 justify-center items-center h-screen">
           <h1 className="text-2xl font-bold mb-12">

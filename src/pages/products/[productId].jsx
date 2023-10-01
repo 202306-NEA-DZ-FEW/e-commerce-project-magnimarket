@@ -4,6 +4,7 @@ import Wishlist from "@/components/Buttons/addToWishListButton"
 import SimilarProducts from "@/components/SimilarProducts/SimilarProducts"
 import SingleProductSlider from "@/components/Slider/ProductSlider"
 import React, { useState } from "react"
+import Head from "next/head"
 
 const ProductPage = ({ product }) => {
   const [quantity, setQuantity] = useState(1)
@@ -51,7 +52,7 @@ const ProductPage = ({ product }) => {
             <Button
               productObject={product}
               styling={
-                "w-full text-white uppercase bg-accent hover:bg-bkgHover hover:text-content focus:ring-4 focus:outline-none focus:ring-content/25 font-medium rounded-lg text-xs p-2 text-center"
+                "w-full font-semibold text-white hover:text-accent uppercase bg-accent hover:bg-bkgHover focus:ring-4 focus:outline-none focus:ring-content/25 font-medium rounded-lg text-xs p-2 text-center"
               }
             />
             <div className="py-2 items-center justify-center">
@@ -60,9 +61,9 @@ const ProductPage = ({ product }) => {
           </div>
         </div>
       </div>
-      <div className="mt-5 pt-5">
+      {/* <div className="mt-5 pt-5">
         <SimilarProducts header="Related items" product={product} />
-      </div>
+      </div> */}
     </div>
   )
 }
