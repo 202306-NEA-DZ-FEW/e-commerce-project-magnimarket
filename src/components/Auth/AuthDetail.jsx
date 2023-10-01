@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react"
 import { auth } from "@/util/firebase"
 import { useRouter } from "next/router"
 import Link from "next/link"
+import { FaUserAlt } from "react-icons/fa"
 
 const AuthDetail = () => {
   const router = useRouter()
@@ -27,7 +28,16 @@ const AuthDetail = () => {
   }
 
   return (
-    <div>
+    <div className="flex items-center space-x-2">
+      {authUser && (
+        <Link
+          href={"/user"}
+          className="flex  hover:underline text-accent items-center "
+        >
+          <FaUserAlt className="mr-2 w-5 h-5" />
+          <div className="hidden md:block">{authUser.email}</div>
+        </Link>
+      )}
       <button
         onClick={userSignOut}
         className={`${
