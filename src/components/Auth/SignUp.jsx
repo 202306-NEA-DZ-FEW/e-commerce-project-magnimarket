@@ -10,6 +10,10 @@ const SignUp = () => {
 
   const handleSignUp = (e) => {
     e.preventDefault()
+    if (password.length < 6) {
+      alert("Password must be at least 6 characters long")
+      return
+    }
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         console.log(userCredential)
@@ -21,7 +25,7 @@ const SignUp = () => {
   }
 
   return (
-    <div className=" flex items-center justify-center ">
+    <div className="flex items-center justify-center">
       <div className="bg-purple p-8 rounded shadow-md w-96">
         <h1 className="text-2xl font-semibold text-accent mb-4">
           Create Account
@@ -52,6 +56,7 @@ const SignUp = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               className="w-full p-2 border rounded"
+              minLength="6" // Minimum length requirement
               required
             />
           </div>

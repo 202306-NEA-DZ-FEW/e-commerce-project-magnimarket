@@ -1,4 +1,5 @@
 // Import the functions you need from the SDKs you need
+
 import { initializeApp } from "firebase/app"
 import { getFirestore } from "firebase/firestore"
 import { getAuth } from "firebase/auth"
@@ -7,7 +8,7 @@ import { getAuth } from "firebase/auth"
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyBQX-p8E5RSeJlCpoSi4QJndU2o8k-mOqs",
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
   authDomain: "magnimarket-756c4.firebaseapp.com",
   projectId: "magnimarket-756c4",
   storageBucket: "magnimarket-756c4.appspot.com",

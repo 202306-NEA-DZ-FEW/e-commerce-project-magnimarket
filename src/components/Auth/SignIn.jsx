@@ -17,6 +17,7 @@ const SignIn = () => {
       })
       .catch((error) => {
         console.log(error)
+        alert("Wrong Email Or Password Please Enter Valid Information")
       })
   }
 
