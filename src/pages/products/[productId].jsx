@@ -4,17 +4,16 @@ import Wishlist from "@/components/Buttons/addToWishListButton"
 import SimilarProducts from "@/components/SimilarProducts/SimilarProducts"
 import SingleProductSlider from "@/components/Slider/ProductSlider"
 import React, { useState } from "react"
-import Head from "next/head"
 
 const ProductPage = ({ product }) => {
   const [quantity, setQuantity] = useState(1)
   console.log(product)
 
   return (
-    <div className="m-8 ml-10 mr-10 p-4 pl-10 pr-10">
-      <div className="flex flex-col md:flex-row md:items-start md:space-x-4">
+    <div className="mt-4 ml-5">
+      <div className="flex flex-col md:flex-row items-center md:space-x-4 justify-center">
         {/* Product Images (Slider) */}
-        <div className="md:w-1/2">
+        <div className="w-1/2">
           <SingleProductSlider product={product} />
           {/* You can use libraries like react-slick for the slider */}
         </div>
@@ -32,19 +31,6 @@ const ProductPage = ({ product }) => {
             <p className="text-4xl font-bold mt-2 pt-2">{product.price}</p>
           </div>
 
-          {/* Quantity Input */}
-          {/* <div className="mt-4 ">
-            <label className="block text-xl font-bold text-content">Quantity:</label>
-            <input
-              className="w-12"
-              type="number"
-              value={quantity}
-              onChange={(e) => setQuantity(Number(e.target.value))}
-              min="1"
-            />
-          </div> */}
-
-          {/* Action Buttons */}
           <div className="mt-6 space-x-2">
             <div className="py-2 ml-2 px-0">
               <BuyProduct />
@@ -52,7 +38,7 @@ const ProductPage = ({ product }) => {
             <Button
               productObject={product}
               styling={
-                "w-full font-semibold text-white hover:text-accent uppercase bg-accent hover:bg-bkgHover focus:ring-4 focus:outline-none focus:ring-content/25 font-medium rounded-lg text-xs p-2 text-center"
+                "w-full text-white uppercase bg-accent hover:bg-bkgHover hover:text-content focus:ring-4 focus:outline-none focus:ring-content/25 font-medium rounded-lg text-xs p-2 text-center"
               }
             />
             <div className="py-2 items-center justify-center">
@@ -61,9 +47,9 @@ const ProductPage = ({ product }) => {
           </div>
         </div>
       </div>
-      {/* <div className="mt-5 pt-5">
+      <div className="mt-5 pt-5">
         <SimilarProducts header="Related items" product={product} />
-      </div> */}
+      </div>
     </div>
   )
 }

@@ -1,6 +1,8 @@
 import React, { Component } from "react"
 import Slider from "react-slick"
 // import { baseUrl } from "./config"
+import "slick-carousel/slick/slick.css"
+import "slick-carousel/slick/slick-theme.css"
 
 const SingleProductSlider = ({ product }) => {
   if (!product || !product.images || !Array.isArray(product.images)) {
@@ -20,21 +22,19 @@ const SingleProductSlider = ({ product }) => {
   }
 
   return (
-    <div className="w-full ">
-      <Slider {...settings}>
-        {product.images.map((image, index) => (
-          <div key={index} className="ml-4 relative w-full">
-            <div>
-              <img
-                className="object-cover w-3/4 rounded-md"
-                src={image}
-                alt={`${product.title} Image ${index}`}
-              />
-            </div>
+    <Slider {...settings}>
+      {product.images.map((image, index) => (
+        <div key={index} className="lg:ml-48 relative">
+          <div>
+            <img
+              className="object-cover w-96 drop-shadow-md  dark:shadow-gray-500 rounded-xl "
+              src={image}
+              alt={`${product.title} Image ${index}`}
+            />
           </div>
-        ))}
-      </Slider>
-    </div>
+        </div>
+      ))}
+    </Slider>
   )
 }
 
