@@ -3,7 +3,7 @@ import { FaGithub } from "react-icons/fa"
 
 export default function Footer() {
   return (
-    <div className="dark:bg-black bg-white body-font flex  p-4 items-center sm:flex-row flex-col border-t  border-border">
+    <div className=" bottom-0 bg-bkg body-font flex  p-4 items-center sm:flex-row flex-col border-t  border-border">
       <Link href="/">
         <div className="flex flex-shrink-0 items-center">
           <img

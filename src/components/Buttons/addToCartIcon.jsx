@@ -8,17 +8,17 @@ import {
   where,
   onSnapshot,
 } from "firebase/firestore"
-import { db, auth } from "@/util/firebase"
+import { auth, db } from "@/util/firebase"
 import { useState, useEffect } from "react"
 import Router, { useRouter } from "next/router"
+import { FaCartPlus, FaCartArrowDown } from "react-icons/fa"
 
-function Wishlist({ productObject }) {
-  const wishlistCollection = collection(db, "Wishlist")
-  const [isInWishlist, setIsInWishlist] = useState(false)
+function CartIcon({ productObject, styling }) {
+  const productsInCart = collection(db, "Products")
+  const [isInCart, setIsInCart] = useState(false)
   const router = useRouter()
-
-  // Function to check if the product is in the wishlist
-  const checkIfInWishlist = async () => {
+  // Function to check if the product is in the cart
+  const checkIfInCart = async () => {
     // check if the user is signed in
     const user = auth.currentUser
     if (!user) {
@@ -26,7 +26,7 @@ function Wishlist({ productObject }) {
     }
 
     const q = query(
-      wishlistCollection,
+      productsInCart,
       where("title", "==", productObject.title),
       where("price", "==", productObject.price),
       where("description", "==", productObject.description),
@@ -35,40 +35,40 @@ function Wishlist({ productObject }) {
 
     const querySnapshot = await getDocs(q)
     if (querySnapshot.size > 0) {
-      setIsInWishlist(true)
+      setIsInCart(true)
     } else {
-      setIsInWishlist(false)
+      setIsInCart(false)
     }
   }
 
-  // Check if the product is in the wishlist when the component mounts
+  // Check if the product is in the cart when the component mounts
   useEffect(() => {
-    checkIfInWishlist()
-  }, [wishlistCollection, productObject])
+    checkIfInCart()
+  }, [productsInCart, productObject])
 
   // Listen for changes in the Firebase collection to keep the button updated
   useEffect(() => {
-    const unsubscribe = onSnapshot(wishlistCollection, () => {
-      checkIfInWishlist()
+    const unsubscribe = onSnapshot(productsInCart, () => {
+      checkIfInCart()
     })
 
     // Clean up the subscription when the component unmounts
     return () => {
       unsubscribe()
     }
-  }, [wishlistCollection])
+  }, [productsInCart])
 
-  const toggleWishlist = async () => {
+  const toggleCart = async () => {
     const user = auth.currentUser
     if (!user) {
       router.push("/signin")
       return
     }
 
-    if (isInWishlist) {
-      // If the item is in the wishlist, remove it
+    if (isInCart) {
+      // If the item is in the cart, remove it
       const q = query(
-        wishlistCollection,
+        productsInCart,
         where("title", "==", productObject.title),
         where("price", "==", productObject.price),
         where("description", "==", productObject.description),
@@ -77,39 +77,42 @@ function Wishlist({ productObject }) {
 
       const querySnapshot = await getDocs(q)
       querySnapshot.forEach((docSnapshot) => {
-        deleteDoc(doc(db, "Wishlist", docSnapshot.id))
+        deleteDoc(doc(db, "Products", docSnapshot.id))
           .then(() => {
-            console.log("Item removed from wishlist successfully!")
-            setIsInWishlist(false)
+            console.log("Document removed from cart successfully!")
+            setIsInCart(false)
           })
           .catch((error) => {
-            console.error("Error removing item from wishlist:", error)
+            console.error("Error removing document from cart:", error)
           })
       })
     } else {
-      // If the item is not in the wishlist, add it
-      await addDoc(wishlistCollection, {
+      // If the item is not in the cart, add it
+
+      await addDoc(productsInCart, {
         ...productObject,
         uid: auth?.currentUser?.uid,
       })
 
-      console.log("Item added to wishlist successfully!")
-      setIsInWishlist(true)
+      console.log("Document added to cart successfully!")
+      setIsInCart(true)
     }
   }
 
   return (
     <div>
       <button
-        onClick={toggleWishlist}
+        onClick={toggleCart}
         className={`${
-          isInWishlist ? "bg-red-500" : "bg-accent"
-        } w-full text-white py-2 px-4 "text-white uppercase  bg-accent hover:bg-bkgHover hover:text-content focus:ring-4 focus:outline-none focus:ring-content/25  font-medium rounded-lg text-xs p-2 text-center"`}
+          isInCart
+            ? "text-red-500 hover:transform hover:scale-95 duration-300 "
+            : "text-accent hover:transform hover:scale-110 duration-300"
+        } ${styling}`}
       >
-        {isInWishlist ? "Remove from Wishlist" : "Add to Wishlist"}
+        {isInCart ? <FaCartArrowDown /> : <FaCartPlus />}
       </button>
     </div>
   )
 }
 
-export default Wishlist
+export default CartIcon

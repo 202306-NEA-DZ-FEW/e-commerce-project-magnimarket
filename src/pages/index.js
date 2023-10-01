@@ -19,7 +19,7 @@ const HomePage = () => {
   }, [])
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col mt-4">
       <div className="flex-grow ">
         <SliderComponent products={products} />
       </div>
@@ -48,13 +48,13 @@ const HomePage = () => {
       <div>
         <GridComponent
           header="Best Sellers"
-          products={[...products].sort((a, b) => b.price - a.price).slice(0, 8)}
+          products={[...products].sort((a, b) => b.price - a.price).slice(0, 9)}
         />
         <GridComponent
           header="New Arrivals"
           products={[...products]
             .sort((a, b) => a.creationAt - b.creationAt)
-            .slice(0, 8)}
+            .slice(0, 9)}
         />
       </div>
     </div>

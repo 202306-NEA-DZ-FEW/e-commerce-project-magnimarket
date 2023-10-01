@@ -11,8 +11,8 @@ import {
 import { db, auth } from "@/util/firebase"
 import { useState, useEffect } from "react"
 import Router, { useRouter } from "next/router"
-
-function Wishlist({ productObject }) {
+import { FaHeart } from "react-icons/fa"
+function WishListIcon({ productObject }) {
   const wishlistCollection = collection(db, "Wishlist")
   const [isInWishlist, setIsInWishlist] = useState(false)
   const router = useRouter()
@@ -103,13 +103,15 @@ function Wishlist({ productObject }) {
       <button
         onClick={toggleWishlist}
         className={`${
-          isInWishlist ? "bg-red-500" : "bg-accent"
-        } w-full text-white py-2 px-4 "text-white uppercase  bg-accent hover:bg-bkgHover hover:text-content focus:ring-4 focus:outline-none focus:ring-content/25  font-medium rounded-lg text-xs p-2 text-center"`}
+          isInWishlist
+            ? "text-red-500 hover:transform hover:scale-95 duration-300"
+            : "text-accent hover:text-accent hover:transform hover:scale-110 duration-300"
+        } text-2xl border border-border w-fit  bg-bkg py-2 px-4 "text-white uppercase  hover:bg-bkgHover  focus:ring-4 focus:outline-none focus:ring-content/25  rounded-lg p-2 text-center"`}
       >
-        {isInWishlist ? "Remove from Wishlist" : "Add to Wishlist"}
+        <FaHeart />
       </button>
     </div>
   )
 }
 
-export default Wishlist
+export default WishListIcon

@@ -98,7 +98,7 @@ export default function SimilarProducts({ product, header }) {
         {similarProducts.map((similarProduct) => (
           <div key={similarProduct.id} className="w-1/4 p-4">
             <Link href={"/products/" + similarProduct.id}>
-              <div className="product rounded-md overflow-hidden shadow-md bg-white">
+              <div className="product rounded-md overflow-hidden shadow-md bg-bkg">
                 <Image
                   className="object-cover"
                   src={`https://source.unsplash.com/random/1600x900?${encodeURIComponent(
@@ -112,7 +112,7 @@ export default function SimilarProducts({ product, header }) {
                   <h3 className="text-lg font-semibold">
                     {similarProduct.title}
                   </h3>
-                  <p className="text-sm overflow-hidden whitespace-nowrap text-ellipsis text-black">
+                  <p className="text-sm overflow-hidden whitespace-nowrap text-ellipsis text-content">
                     {similarProduct.description}
                   </p>
                 </div>

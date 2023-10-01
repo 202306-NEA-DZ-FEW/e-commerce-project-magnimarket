@@ -1,16 +1,16 @@
 import { useEffect, useState } from "react"
 import { useRouter } from "next/router"
 import Link from "next/link"
-import { FaBars, FaTimes, FaShoppingCart, FaHeart } from "react-icons/fa"
+import { FaBars, FaTimes, FaHeart } from "react-icons/fa"
 import { Disclosure } from "@headlessui/react"
 // import logo from "../../../public/logo.png"
 import Image from "next/image"
 import AuthDetail from "../Auth/AuthDetail"
+import CartButton from "../Buttons/CartButton"
 
 export default function Navbar() {
   const router = useRouter()
 
-  const [showShoppingMenu, setShowShoppingMenu] = useState(false)
   const [open, setOpen] = useState(false)
 
   const navigation = [
@@ -18,10 +18,6 @@ export default function Navbar() {
     { name: "Shop", href: "/products", current: router.pathname === "/shop" },
     { name: "About", href: "/about", current: router.pathname === "/about" },
   ]
-
-  const toggleShoppingMenu = () => {
-    setShowShoppingMenu(!showShoppingMenu)
-  }
 
   useEffect(() => {
     // Close the mobile menu when the route changes
@@ -31,7 +27,7 @@ export default function Navbar() {
   return (
     <Disclosure
       as="nav"
-      className="bg-none dark:bg-black border-b border-border dark:border-gray-900"
+      className="bg-none  border-b border-border dark:border-gray-900"
     >
       {({ open }) => (
         <>
@@ -70,7 +66,7 @@ export default function Navbar() {
                     {navigation.map((item) => (
                       <Link key={item.name} href={item.href}>
                         <div
-                          className={`dark:text-white text-gray-900 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium ${
+                          className={`text-content hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-md font-bold ${
                             router.pathname === item.href
                               ? "bg-gray-800 text-white"
                               : ""
@@ -92,8 +88,7 @@ export default function Navbar() {
               >
                 <button
                   type="button"
-                  onClick={toggleShoppingMenu}
-                  className="rounded-full bg-purple-900 p-2 text-white hover:bg-white hover:text-red-600 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 hover:transform hover:rotate-12 duration-300"
+                  className="rounded-full bg-purple-900 p-2 text-white hover:bg-bkg hover:text-red-600 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 hover:transform hover:rotate-12 duration-300"
                 >
                   <FaHeart
                     className="h-6 w-6 hover:transform hover:scale-125 duration-300"
@@ -105,16 +100,7 @@ export default function Navbar() {
                 href="/cart"
                 className=" inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0"
               >
-                <button
-                  type="button"
-                  onClick={toggleShoppingMenu}
-                  className="rounded-full bg-purple-900 p-2 text-white hover:bg-white hover:text-purple-900 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 hover:transform hover:rotate-12 duration-300"
-                >
-                  <FaShoppingCart
-                    className="h-6 w-6 hover:transform hover:scale-125 duration-300"
-                    aria-hidden="true"
-                  />
-                </button>
+                <CartButton />
               </Link>
             </div>
           </div>
@@ -135,7 +121,8 @@ export default function Navbar() {
                   </div>
                 </Link>
               ))}
-              <AuthDetail />
+
+              <AuthDetail onClick={() => setOpen(false)} />
             </div>
           </Disclosure.Panel>
         </>
