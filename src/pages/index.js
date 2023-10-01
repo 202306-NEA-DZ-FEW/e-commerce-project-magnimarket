@@ -48,12 +48,16 @@ const HomePage = () => {
       <div>
         <GridComponent
           header="Best Sellers"
-          products={[...products].sort((a, b) => b.price - a.price).slice(0, 9)}
+          products={[...products].sort((a, b) => a.price - b.price).slice(0, 9)}
         />
         <GridComponent
           header="New Arrivals"
           products={[...products]
-            .sort((a, b) => a.creationAt - b.creationAt)
+            .sort((a, b) => {
+              const dateA = new Date(a.creationAt)
+              const dateB = new Date(b.creationAt)
+              return dateB - dateA
+            })
             .slice(0, 9)}
         />
       </div>
