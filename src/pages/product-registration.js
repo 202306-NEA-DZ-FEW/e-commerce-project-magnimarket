@@ -27,7 +27,7 @@ export default function ProductRegistration() {
   return (
     <div className="max-w-4xl mx-auto p-4 bg-bkg shadow-lg rounded-lg relative">
       <button
-        className="absolute top-2 right-2 text-gray-600 hover:text-gray-800 focus:outline-none"
+        className="absolute top-2 right-2 text-gray-600 dark:text-gray-400 hover:text-gray-800 focus:outline-none"
         onClick={() => window.history.back()}
       >
         <svg
@@ -45,13 +45,13 @@ export default function ProductRegistration() {
           ></path>
         </svg>
       </button>
-      <h1 className="text-2xl font-semibold text-center mb-4">
+      <h1 className="text-2xl font-semibold dark:text-gray-400 text-center mb-4">
         Product Registration
       </h1>
 
       <form onSubmit={handleSubmit}>
         {/* Country Selector */}
-        <div className="mb-4">
+        <div className="mb-4 dark:text-gray-400">
           <label htmlFor="country" className="block text-lg font-semibold">
             Country:
           </label>
@@ -78,14 +78,14 @@ export default function ProductRegistration() {
 
         {/* Personal Information */}
         <fieldset className="mb-6">
-          <legend className="text-lg font-semibold">
+          <legend className="text-lg dark:text-gray-400 font-semibold">
             Personal Information
           </legend>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="mb-4">
               <label
                 htmlFor="fullName"
-                className="block text-sm font-serif text-gray-700"
+                className="block text-sm font-serif text-gray-700 dark:text-gray-500"
               >
                 Full Name:
               </label>
@@ -103,7 +103,7 @@ export default function ProductRegistration() {
             <div className="mb-4">
               <label
                 htmlFor="phoneNumber"
-                className="block text-sm font-serif text-gray-700"
+                className="block text-sm font-serif text-gray-700 dark:text-gray-500"
               >
                 Phone Number:
               </label>
@@ -134,7 +134,7 @@ export default function ProductRegistration() {
           <div className="mb-4">
             <label
               htmlFor="email"
-              className="block text-sm font-serif text-gray-700"
+              className="block text-sm font-serif text-gray-700 dark:text-gray-500"
             >
               Email:
             </label>
@@ -153,11 +153,13 @@ export default function ProductRegistration() {
 
         {/* Shipping Address */}
         <fieldset className="mb-6">
-          <legend className="text-lg font-semibold">Shipping Address</legend>
+          <legend className="text-lg font-semibold dark:text-gray-400">
+            Shipping Address
+          </legend>
           <div className="mb-4">
             <label
               htmlFor="address"
-              className="block text-sm font-serif text-gray-700"
+              className="block text-sm font-serif text-gray-700 dark:text-gray-500"
             >
               Address:
             </label>
@@ -175,7 +177,7 @@ export default function ProductRegistration() {
             <div className="mb-4">
               <label
                 htmlFor="city"
-                className="block text-sm font-serif text-gray-700"
+                className="block text-sm font-serif text-gray-700 dark:text-gray-500"
               >
                 City:
               </label>
@@ -193,7 +195,7 @@ export default function ProductRegistration() {
             <div className="mb-4">
               <label
                 htmlFor="zipCode"
-                className="block text-sm font-serif text-gray-700"
+                className="block text-sm font-serif text-gray-700 dark:text-gray-500"
               >
                 ZIP Code:
               </label>
@@ -213,11 +215,13 @@ export default function ProductRegistration() {
 
         {/* Payment Information */}
         <fieldset className="mb-6">
-          <legend className="text-lg font-semibold">Payment Information</legend>
+          <legend className="text-lg dark:text-gray-400 font-semibold">
+            Payment Information
+          </legend>
           <div className="mb-4">
             <label
               htmlFor="cardNumber"
-              className="block text-sm font-serif text-gray-700"
+              className="block text-sm font-serif text-gray-700 dark:text-gray-500"
             >
               Card Number:
             </label>
@@ -236,7 +240,7 @@ export default function ProductRegistration() {
             <div className="mb-4">
               <label
                 htmlFor="expDate"
-                className="block text-sm font-serif text-gray-700"
+                className="block text-sm font-serif text-gray-700 dark:text-gray-500"
               >
                 Expiration Date:
               </label>
@@ -254,7 +258,7 @@ export default function ProductRegistration() {
             <div className="mb-4">
               <label
                 htmlFor="cvv"
-                className="block text-sm font-serif text-gray-700"
+                className="block text-sm font-serif text-gray-700 dark:text-gray-500"
               >
                 CVV:
               </label>

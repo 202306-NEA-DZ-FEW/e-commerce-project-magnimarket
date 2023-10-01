@@ -15,7 +15,7 @@ const HeroSection = () => {
       name: "M.Mohamed",
       linkedin: "https://www.linkedin.com/in/matassi-mohamed/",
       image:
-        "https://media.licdn.com/dms/image/D4E03AQF5osmJLYc_WQ/profile-displayphoto-shrink_200_200/0/1680787767230?e=1701302400&v=beta&t=mVfo06mrsQbz0io_-Vx7cI7sYxrilfkVA18s2V3Mv5I",
+        "https://media.licdn.com/dms/image/D4E03AQHEx7eebY2okQ/profile-displayphoto-shrink_200_200/0/1696179669592?e=1701907200&v=beta&t=WLODjKHD8K51SwZn5NsO8q6mhzMxQ-ykLu2iI2BznLk",
       github: "https://github.com/M07am3dM",
       skills: ["React", "JavaScript", "CSS", "NextJS"],
     },
@@ -24,7 +24,8 @@ const HeroSection = () => {
       linkedin: "",
       github: "https://github.com/mohamed-cheraitia",
       skills: ["React", "JavaScript", "CSS", "NextJS"],
-      image: "../imgs/mohamed.jpg",
+      image:
+        "https://i.pinimg.com/280x280_RS/54/68/86/54688644972d81003387b06e77876443.jpg",
     },
     {
       name: "Oussama",

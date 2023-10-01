@@ -4,6 +4,7 @@ import WishListIcon from "@/components/Buttons/addToWishListIcon"
 import { FaCartArrowDown } from "react-icons/fa"
 import Wishlist from "../Buttons/addToWishListButton"
 import CartIcon from "../Buttons/addToCartIcon"
+import { color } from "framer-motion"
 const GridComponent = ({ header, products, link }) => {
   return (
     <div className="container m-auto mb-6">
@@ -15,12 +16,13 @@ const GridComponent = ({ header, products, link }) => {
         {products.map((product) => (
           <div
             key={product.id}
-            className="w-full  text-content sm:w-1/2 md:w-1/3 lg:w-96 p-2 mt-4 mx-1 product rounded-md overflow-hidden shadow-md bg-bkg border border-border "
+            className="w-full  text-content sm:w-1/2 md:w-1/3 lg:w-96 p-2 mt-4 mx-1 product rounded-md overflow-hidden shadow-md bg-bkg border border-border"
+            style={{ borderColor: "#D2B48C" }}
           >
             <Link href={"products/" + product.id}>
               <div className="product">
                 <Image
-                  className="object-cover "
+                  className="object-cover rounded "
                   src={`https://source.unsplash.com/random/1600x900?${encodeURIComponent(
                     product.title,
                   )}`}
@@ -30,9 +32,12 @@ const GridComponent = ({ header, products, link }) => {
                 />
                 <div className="p-4 dark:p-2   ">
                   <h3 className="text-lg font-semibold ">{product.title}</h3>
-                  <p className="text-l overflow-hidden whitespace-nowrap text-ellipsis text-content">
-                    $ {product.price}
-                  </p>
+                  <div className="flex">
+                    <p className="text-lg uppercase font-bold mt-2 pt-2">$</p>
+                    <p className="text-3xl font-bold mt-2 pt-2 overflow-hidden whitespace-nowrap text-ellipsis text-content">
+                      {product.price}
+                    </p>
+                  </div>
                 </div>
               </div>
             </Link>
