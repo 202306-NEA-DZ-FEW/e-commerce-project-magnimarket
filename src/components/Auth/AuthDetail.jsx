@@ -28,7 +28,14 @@ const AuthDetail = () => {
 
   return (
     <div>
-      <button onClick={userSignOut}>
+      <button
+        onClick={userSignOut}
+        className={`${
+          authUser
+            ? "bg-red-500 text-white p-1 px-2 border border-border rounded-md hover:bg-red-900"
+            : "font-bold border border-border p-1 px-2 rounded-md text-content hover:bg-accent"
+        }`}
+      >
         {authUser ? "Sign Out" : <Link href={"/signin"}>Sign In</Link>}
       </button>
     </div>

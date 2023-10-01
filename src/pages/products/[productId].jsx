@@ -71,7 +71,7 @@ const ProductPage = ({ product }) => {
             <Button
               productObject={product}
               styling={
-                "w-full text-white uppercase bg-accent hover:bg-bkgHover hover:text-black focus:ring-4 focus:outline-none focus:ring-content/25 font-medium rounded-lg text-xs p-2 text-center"
+                "w-full text-white uppercase bg-accent hover:bg-bkgHover hover:text-content focus:ring-4 focus:outline-none focus:ring-content/25 font-medium rounded-lg text-xs p-2 text-center"
               }
             />
             <div className="py-2 items-center justify-center">

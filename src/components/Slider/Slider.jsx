@@ -89,7 +89,7 @@ const SliderComponent = ({ products }) => {
                   height={500}
                 />
               </div>
-              <div className="slider-caption lg:w-4/5 2xl:w-5/6  absolute bottom-0 left-0 bg-black rounded-r-xl bg-opacity-50 p-6 mb-5 2xl:mb-10 2xl:ml-4 ml-4 lg:ml-0  mr-1 text-black hover:bg-accent ">
+              <div className="slider-caption lg:w-4/5 2xl:w-5/6  absolute bottom-0 left-0 bg-black rounded-r-xl bg-opacity-50 p-6 mb-5 2xl:mb-10 2xl:ml-4 ml-4 lg:ml-0  mr-1 text-content hover:bg-accent ">
                 <h3 className="text-xl font-semibold tracking-tight  text-white">
                   {product.title}
                 </h3>

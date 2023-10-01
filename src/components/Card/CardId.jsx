@@ -48,7 +48,7 @@ function Card({
   const totalProductPrice = productObject.price * quantity
 
   return (
-    <div className="border border-border  relative rounded-lg overflow-hidden shadow-lg bg-white text-gray-800 p-2 mb-6">
+    <div className="border border-border  relative rounded-lg overflow-hidden shadow-lg bg-bkg text-gray-800 p-2 mb-6">
       <div className="flex flex-col lg:flex-row">
         <div className="w-full lg:w-1/3">
           <img

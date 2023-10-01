@@ -21,13 +21,13 @@ const SignIn = () => {
   }
 
   return (
-    <div className=" flex items-center justify-center ">
+    <div className="h-full flex items-center justify-center ">
       <div className="bg-purple p-8 rounded shadow-md w-96 bg-accent">
         <h1 className="text-2xl font-semibold text-white mb-4">Sign In</h1>
         <form onSubmit={handleSignIn}>
           <div className="mb-4">
-            <label htmlFor="username" className="block text-white">
-              Username
+            <label htmlFor="username" className="block text-white mb-2">
+              E-mail
             </label>
             <input
               type="text"
@@ -40,7 +40,7 @@ const SignIn = () => {
             />
           </div>
           <div className="mb-6">
-            <label htmlFor="password" className="block text-white">
+            <label htmlFor="password" className="block text-white mb-2">
               Password
             </label>
             <input
@@ -56,7 +56,7 @@ const SignIn = () => {
           <div>
             <button
               type="submit"
-              className="w-full bg-purple-300 text-purple-800 py-2 px-4 rounded hover:bg-purple-400"
+              className="w-full bg-purple-800 border border-border text-white py-2 px-4 rounded hover:bg-purple-400"
             >
               Sign In
             </button>

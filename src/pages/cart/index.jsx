@@ -84,14 +84,14 @@ function CartPage() {
 
   return (
     <div className="container mx-auto p-4">
-      <h1 className="font-bold mb-4 text-3xl font-semibold mb-4 text-gray-800 border-b-2 border-gray-300 py-2">
+      <h1 className="font-bold mb-4 text-3xl  text-titleContent border-b-2 border-gray-300 py-2">
         Your Cart
       </h1>
 
       {isAuthenticated ? (
         <div className="flex flex-col">
           {products.length === 0 ? (
-            <p className="text-lg font-bold text-gray-800 mt-4 h-screen">
+            <p className="text-lg font-bold text-content mt-4 h-screen">
               Your cart is empty.
             </p>
           ) : (

@@ -81,7 +81,7 @@ const FilterSidebar = ({ categories, filters, setFilters }) => {
               type="text"
               id="title"
               name="title"
-              className="border rounded w-full py-2 px-3 text-content"
+              className="border rounded w-full py-2 px-3 text-black"
               onChange={handleFilterChange}
               value={filters.title || ""}
               placeholder="Lookup a title"
@@ -94,7 +94,7 @@ const FilterSidebar = ({ categories, filters, setFilters }) => {
             <select
               id="category"
               name="category"
-              className="border rounded w-full py-2 px-3 text-content"
+              className="border rounded w-full py-2 px-3 text-black"
               value={filters.categoryId || "all"}
               onChange={handleCategorySelectChange}
             >
