@@ -28,41 +28,16 @@ export default function SimilarProducts({ product, header }) {
     fetchSimilarProducts()
   }, [product])
 
-  const NextArrow = (props) => {
-    const { className, style, onClick } = props
-    return (
-      <div
-        className={className}
-        style={{
-          ...style,
-          background: "green",
-          borderRadius: "50%",
-        }}
-        onClick={onClick}
-      ></div>
-    )
-  }
-  const PrevArrow = (props) => {
-    const { className, style, onClick } = props
-    return (
-      <div className={className} style={style} onClick={onClick}>
-        {/* Left Arrow */}
-        <span>&lt;</span>
-      </div>
-    )
-  }
-
   const settings = {
+    lazyLoad: "ondemand",
     dots: false,
     infinite: false,
-    speed: 500,
+    speed: 2000,
     autoplay: true,
     slidesToShow: 4,
     slidesToScroll: 1,
     initialSlide: 0,
     arrows: false,
-    // nextArrow: <NextArrow />,
-    // prevArrow: <PrevArrow />,
     responsive: [
       {
         breakpoint: 1024,
@@ -93,7 +68,9 @@ export default function SimilarProducts({ product, header }) {
 
   return (
     <div className="">
-      <h2 className="text-3xl ml-10 pl-10 text-gray-800">{header}</h2>
+      <h2 className="text-3xl ml-10 pl-10 dark:text-white text-gray-800">
+        {header}
+      </h2>
       <Slider {...settings}>
         {similarProducts.map((similarProduct) => (
           <div key={similarProduct.id} className="w-1/4 p-4">
@@ -108,7 +85,7 @@ export default function SimilarProducts({ product, header }) {
                   width={500}
                   height={500}
                 />
-                <div className="p-4">
+                <div className="p-4 text-content">
                   <h3 className="text-lg font-semibold">
                     {similarProduct.title}
                   </h3>

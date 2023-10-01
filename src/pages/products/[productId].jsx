@@ -9,28 +9,6 @@ const ProductPage = ({ product }) => {
   const [quantity, setQuantity] = useState(1)
   console.log(product)
 
-  // const handleAddToCart = () => {
-  //   // Retrieve the existing cart data from local storage
-  //   const existingCart = JSON.parse(localStorage.getItem("cart")) || []
-
-  //   // Check if the product is already in the cart
-  //   const existingProduct = existingCart.find((item) => item.id === product.id)
-
-  //   if (existingProduct) {
-  //     // If the product is already in the cart, update its quantity
-  //     existingProduct.quantity += quantity
-  //   } else {
-  //     // If it's not in the cart, add it
-  //     existingCart.push({ ...product, quantity })
-  //   }
-
-  //   // Save the updated cart data to local storage
-  //   localStorage.setItem("cart", JSON.stringify(existingCart))
-
-  //   // Reset the quantity input
-  //   setQuantity(1)
-  // }
-
   return (
     <div className="m-8 ml-10 mr-10 p-4 pl-10 pr-10">
       <div className="flex flex-col md:flex-row md:items-start md:space-x-4">
@@ -42,18 +20,20 @@ const ProductPage = ({ product }) => {
 
         {/* Product Details */}
         <div className="md:w-1/2 p-4">
-          <h1 className="text-4xl m-4 p-4 ml-0 pl-0 font-semibold">
+          <h1 className="text-4xl m-4 p-4 ml-0 pl-0 font-semibold text-content">
             {product.title}
           </h1>
-          <p className="text-xl text-gray-600">{product.description}</p>
-          <div className="flex">
-            <p className="text-xl uppercase font-bold mt-2 pt-2">us $</p>
+          <p className="text-xl dark:text-gray-400 text-gray-700">
+            {product.description}
+          </p>
+          <div className="flex text-content">
+            <p className="text-xl uppercase font-bold mt-2 pt-2">$</p>
             <p className="text-4xl font-bold mt-2 pt-2">{product.price}</p>
           </div>
 
           {/* Quantity Input */}
-          <div className="mt-4 ">
-            <label className="block text-xl font-bold">Quantity:</label>
+          {/* <div className="mt-4 ">
+            <label className="block text-xl font-bold text-content">Quantity:</label>
             <input
               className="w-12"
               type="number"
@@ -61,7 +41,7 @@ const ProductPage = ({ product }) => {
               onChange={(e) => setQuantity(Number(e.target.value))}
               min="1"
             />
-          </div>
+          </div> */}
 
           {/* Action Buttons */}
           <div className="mt-6 space-x-2">

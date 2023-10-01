@@ -33,8 +33,13 @@ export default function Card({ product }) {
               <p className="text-xs overflow-hidden whitespace-nowrap text-ellipsis text-titleContent">
                 {description}
               </p>
-              <div className="flex items-center justify-between mt-3 mb-2">
-                <span className="text-xl font-bold text-content">${price}</span>
+              <div className="flex items-start mt-3 mb-2">
+                <span className="text-md mt-2 pt-2 font-bold text-content">
+                  $
+                </span>
+                <span className="text-xl mt-2 pt-2 font-bold text-content">
+                  {price}
+                </span>
               </div>
             </div>
           </Link>
