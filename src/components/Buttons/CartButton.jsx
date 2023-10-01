@@ -13,6 +13,7 @@ import { FaShoppingCart } from "react-icons/fa"
 const CartButton = () => {
   const [products, setProducts] = useState([])
   const [isAuthenticated, setIsAuthenticated] = useState(false)
+  const [totalItems, setTotalItems] = useState(null) // Initialize as null
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -22,24 +23,42 @@ const CartButton = () => {
         const q = query(productsCollection, where("uid", "==", userUID))
         const querySnapshot = await getDocs(q)
         const productsData = []
+
+        let count = 0
         querySnapshot.forEach((doc) => {
           const productData = doc.data()
           productsData.push({
             ...productData,
             quantity: 1,
           })
+          count++ // Increment count for each product
         })
 
         setProducts(productsData)
+
+        // Update totalItems with the count after fetching the products
+        setTotalItems(count)
       } else {
         setProducts([])
+
+        // Reset totalItems to null when the user is not authenticated
+        setTotalItems(null)
       }
     }
 
     const listener = onAuthStateChanged(auth, async (user) => {
       setIsAuthenticated(Boolean(user))
+
+      // Reset totalItems to null when the user changes
+      setTotalItems(null)
+
+      // If the user is authenticated, fetch the products
+      if (user) {
+        fetchProducts()
+      }
     })
 
+    // Initial fetch of products
     fetchProducts()
 
     const unsubscribe = onSnapshot(collection(db, "Products"), (snapshot) => {
@@ -52,8 +71,6 @@ const CartButton = () => {
       unsubscribe()
     }
   }, [])
-
-  const totalItems = products.length
 
   return (
     <button
