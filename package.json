@@ -17,8 +17,8 @@
     "@headlessui/react": "^1.7.17",
     "@heroicons/react": "^2.0.18",
     "autoprefixer": "10.4.16",
-    "dotenv": "^16.3.1",
     "axios": "^1.5.1",
+    "dotenv": "^16.3.1",
     "eslint": "8.50.0",
     "eslint-config-next": "13.5.2",
     "firebase": "^10.4.0",
@@ -41,6 +41,7 @@
   "devDependencies": {
     "@commitlint/cli": "^17.7.1",
     "@commitlint/config-conventional": "^17.7.0",
+    "@netlify/plugin-nextjs": "^4.40.1",
     "css-loader": "^6.8.1",
     "cz-conventional-changelog": "^3.3.0",
     "husky": "^8.0.0",

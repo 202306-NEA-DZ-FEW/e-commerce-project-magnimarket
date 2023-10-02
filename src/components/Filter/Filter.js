@@ -58,7 +58,7 @@ const FilterSidebar = ({ categories, filters, setFilters }) => {
   }, [filters, categories])
   return (
     <div
-      className={`filters z-10 -mt-12 sticky text-bkg hover:text-bkg/60 top-0 bg-accent pl-2 pr-12 py-4 w-0 overflow-hidden h-screen hover:w-96 transition-all ease-in-out duration-300`}
+      className={`filters z-10 -mt-12 sticky text-bkg hover:text-bkg/60 top-0 bg-accent pl-2 pr-12 py-4 w-0 overflow-hidden h-screen sm:hover:w-96 hover:w-1/2  transition-all ease-in-out duration-300`}
     >
       <div className="grid grid-cols-2 mt-24 h-96 -space-x-8">
         <div className="grid grid-rows-4   h-full">

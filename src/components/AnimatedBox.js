@@ -43,7 +43,7 @@ const AnimatedBox = ({ children }) => {
           x: { duration: 0.7 },
           y: { duration: 0.7 },
         }}
-        className={`relative flex w-full h-full mt-12`}
+        className={` flex w-full h-full mt-12`}
       >
         {children}
       </motion.div>
