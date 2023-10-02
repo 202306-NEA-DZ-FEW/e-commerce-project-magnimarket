@@ -12,7 +12,7 @@ export async function getServerSideProps({ query }) {
   const price_min = query.price_min || "0"
   const price_max = query.price_max || "1000"
 
-  const products = await fetcher("products?offset=0&limit=48")
+  const products = await fetcher("products")
   const categories = await fetcher("categories")
 
   return {
